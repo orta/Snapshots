@@ -9,10 +9,13 @@
 #import <Cocoa/Cocoa.h>
 
 @class ORKaleidoscopeCommand;
-@interface ORCommandView : NSView
+
+@interface ORCommandView : NSTableCellView
 
 @property (weak) IBOutlet NSImageView *fromImageView;
 @property (weak) IBOutlet NSImageView *toImageView;
+
+@property (weak) IBOutlet NSTextField *testCaseTitle;
 
 @property (weak) IBOutlet NSButton *runSingleCommand;
 @property (weak) ORKaleidoscopeCommand *command;

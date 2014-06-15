@@ -9,7 +9,7 @@
 #import <Cocoa/Cocoa.h>
 
 @class ORLogReader;
-@interface ORPopoverController : NSViewController
+@interface ORPopoverController : NSViewController <NSTableViewDelegate, NSTableViewDataSource>
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil reader:(ORLogReader *)reader;
 
