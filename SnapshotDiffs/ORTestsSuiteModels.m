@@ -62,6 +62,7 @@
 - (void)addCommand:(ORKaleidoscopeCommand *)command
 {
     [self.commands addObject:command];
+    command.testCase = self;
 }
 
 - (BOOL)hasFailingTests

@@ -17,7 +17,6 @@
 
 @property (weak) IBOutlet NSTextField *testCaseTitle;
 
-@property (weak) IBOutlet NSButton *runSingleCommand;
 @property (weak) ORKaleidoscopeCommand *command;
 
 @end

@@ -16,6 +16,10 @@
 		6018B709194DE589001981D7 /* ORKaleidoscopeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6018B708194DE589001981D7 /* ORKaleidoscopeController.m */; };
 		6018B70F194DEFB4001981D7 /* OutputExamples in Resources */ = {isa = PBXBuildFile; fileRef = 6018B70E194DEFB4001981D7 /* OutputExamples */; };
 		6018B712194DF0A8001981D7 /* ORTestsSuiteModels.m in Sources */ = {isa = PBXBuildFile; fileRef = 6018B711194DF0A8001981D7 /* ORTestsSuiteModels.m */; };
+		6020BD71194E061A0027B265 /* KaleidoscopeAllButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 6020BD70194E061A0027B265 /* KaleidoscopeAllButton.png */; };
+		6020BD73194E08210027B265 /* KaleidoscopeAllButtonActive.png in Resources */ = {isa = PBXBuildFile; fileRef = 6020BD72194E08210027B265 /* KaleidoscopeAllButtonActive.png */; };
+		6020BD76194E09470027B265 /* ViewDiffImageActive.png in Resources */ = {isa = PBXBuildFile; fileRef = 6020BD74194E09470027B265 /* ViewDiffImageActive.png */; };
+		6020BD77194E09470027B265 /* ViewDiffImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 6020BD75194E09470027B265 /* ViewDiffImage.png */; };
 		605A0232194A34A500920397 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 605A0231194A34A500920397 /* AppKit.framework */; };
 		605A0234194A34A500920397 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 605A0233194A34A500920397 /* Foundation.framework */; };
 		605A023A194A34A500920397 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 605A0238194A34A500920397 /* InfoPlist.strings */; };
@@ -38,6 +42,10 @@
 		6018B70E194DEFB4001981D7 /* OutputExamples */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = OutputExamples; sourceTree = "<group>"; };
 		6018B710194DF0A8001981D7 /* ORTestsSuiteModels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORTestsSuiteModels.h; sourceTree = "<group>"; };
 		6018B711194DF0A8001981D7 /* ORTestsSuiteModels.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORTestsSuiteModels.m; sourceTree = "<group>"; };
+		6020BD70194E061A0027B265 /* KaleidoscopeAllButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = KaleidoscopeAllButton.png; sourceTree = "<group>"; };
+		6020BD72194E08210027B265 /* KaleidoscopeAllButtonActive.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = KaleidoscopeAllButtonActive.png; sourceTree = "<group>"; };
+		6020BD74194E09470027B265 /* ViewDiffImageActive.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ViewDiffImageActive.png; sourceTree = "<group>"; };
+		6020BD75194E09470027B265 /* ViewDiffImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ViewDiffImage.png; sourceTree = "<group>"; };
 		605A022E194A34A500920397 /* SnapshotDiffs.xcplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SnapshotDiffs.xcplugin; sourceTree = BUILT_PRODUCTS_DIR; };
 		605A0231194A34A500920397 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		605A0233194A34A500920397 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -147,6 +155,10 @@
 		605A0236194A34A500920397 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				6020BD74194E09470027B265 /* ViewDiffImageActive.png */,
+				6020BD75194E09470027B265 /* ViewDiffImage.png */,
+				6020BD72194E08210027B265 /* KaleidoscopeAllButtonActive.png */,
+				6020BD70194E061A0027B265 /* KaleidoscopeAllButton.png */,
 				6014D77A194B872400CB802D /* SnapshotToolbarIconActive.png */,
 				6014D77B194B872400CB802D /* SnapshotToolbarIcon.png */,
 				605A0237194A34A500920397 /* SnapshotDiffs-Info.plist */,
@@ -209,11 +221,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6020BD71194E061A0027B265 /* KaleidoscopeAllButton.png in Resources */,
 				6014D782194B949F00CB802D /* ORPopoverController.xib in Resources */,
 				6014D77C194B872400CB802D /* SnapshotToolbarIconActive.png in Resources */,
 				6014D77D194B872400CB802D /* SnapshotToolbarIcon.png in Resources */,
+				6020BD77194E09470027B265 /* ViewDiffImage.png in Resources */,
 				6018B70F194DEFB4001981D7 /* OutputExamples in Resources */,
+				6020BD76194E09470027B265 /* ViewDiffImageActive.png in Resources */,
 				605A023A194A34A500920397 /* InfoPlist.strings in Resources */,
+				6020BD73194E08210027B265 /* KaleidoscopeAllButtonActive.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

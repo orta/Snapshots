@@ -31,9 +31,11 @@
 
 @interface ORKaleidoscopeCommand : NSObject
 - (void)launch;
+
 @property (nonatomic, strong) NSString *beforePath;
 @property (nonatomic, strong) NSString *afterPath;
 @property (nonatomic, strong) NSString *fullCommand;
+@property (nonatomic, weak) ORTestCase *testCase;
 
 + (instancetype)commandFromString:(NSString *)command;
 @end
