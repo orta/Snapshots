@@ -1,0 +1,51 @@
+Plain old XCTest:
+
+2014-06-15 11:13:21.557 SNAPSHOTTESTS[13529:60b] Cannot find executable for CFBundle 0x8c8a910 </Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/System/Library/AccessibilityBundles/CertUIFramework.axbundle> (not loaded)
+Test Suite 'All tests' started at 2014-06-15 15:13:21 +0000
+Test Suite 'SNAPSHOTTESTSTests.xctest' started at 2014-06-15 15:13:21 +0000
+Test Suite 'FBSnapshotTestCase' started at 2014-06-15 15:13:21 +0000
+Test Suite 'FBSnapshotTestCase' finished at 2014-06-15 15:13:21 +0000.
+Executed 0 tests, with 0 failures (0 unexpected) in 0.000 (0.000) seconds
+Test Suite 'SNAPSHOTTESTSTests' started at 2014-06-15 15:13:21 +0000
+Test Case '-[SNAPSHOTTESTSTests testExample]' started.
+2014-06-15 11:13:21.619 SNAPSHOTTESTS[13529:60b] If you have Kaleidoscope installed you can run this command to see an image diff:
+ksdiff "/Users/orta/Library/Application Support/iPhone Simulator/7.1/Applications/888DDE74-DCF8-49F3-97D2-95E65FCDF206/tmp/SNAPSHOTTESTSTests/reference_testExample@2x.png" "/Users/orta/Library/Application Support/iPhone Simulator/7.1/Applications/888DDE74-DCF8-49F3-97D2-95E65FCDF206/tmp/SNAPSHOTTESTSTests/failed_testExample@2x.png"
+/Users/orta/dev/ios/scratch/SNAPSHOTTESTS/SNAPSHOTTESTSTests/SNAPSHOTTESTSTests.m:36: error: -[SNAPSHOTTESTSTests testExample] : ((comparisonSuccess__) is true) failed - Snapshot comparison failed: Error Domain=FBSnapshotTestControllerErrorDomain Code=3 "Images different sizes" UserInfo=0xf780990 {NSLocalizedFailureReason=referenceImage:{21, 22}, image:{26, 22}, NSLocalizedDescription=Images different sizes}
+Test Case '-[SNAPSHOTTESTSTests testExample]' failed (0.010 seconds).
+Test Suite 'SNAPSHOTTESTSTests' finished at 2014-06-15 15:13:21 +0000.
+Executed 1 test, with 1 failure (0 unexpected) in 0.010 (0.010) seconds
+Test Suite 'SNAPSHOTTESTSTests.xctest' finished at 2014-06-15 15:13:21 +0000.
+Executed 1 test, with 1 failure (0 unexpected) in 0.010 (0.010) seconds
+Test Suite 'All tests' finished at 2014-06-15 15:13:21 +0000.
+Executed 1 test, with 1 failure (0 unexpected) in 0.010 (0.011) seconds
+
+
+Expecta
+
+2014-06-15 10:58:43.192 Demo[12226:60b] Cannot find executable for CFBundle 0xa27d520 </Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/System/Library/AccessibilityBundles/CertUIFramework.axbundle> (not loaded)
+= All tests
+  Test Suite 'All tests' started at 2014-06-15 14:58:43 +0000
+
+  = DemoTests.xctest
+    Test Suite 'DemoTests.xctest' started at 2014-06-15 14:58:43 +0000
+
+    = FBSnapshotTestCase
+      Test Suite 'FBSnapshotTestCase' started at 2014-06-15 14:58:43 +0000
+
+      Test Suite 'FBSnapshotTestCase' finished at 2014-06-15 14:58:43 +0000.
+      Executed 0 tests, with 0 failures (0 unexpected) in 0.000 (0.000) seconds
+    
+    = NAAnnotationDemoViewControllerSpec
+      Test Suite 'NAAnnotationDemoViewControllerSpec' started at 2014-06-15 14:58:43 +0000
+
+      -[NAAnnotationDemoViewControllerSpec displays_map_with_a_pin]
+        Test Case '-[NAAnnotationDemoViewControllerSpec displays_map_with_a_pin]' started.
+        Test Case '-[NAAnnotationDemoViewControllerSpec displays_map_with_a_pin]' passed (0.264 seconds).
+      
+      Test Suite 'NAAnnotationDemoViewControllerSpec' finished at 2014-06-15 14:58:43 +0000.
+      Executed 1 test, with 0 failures (0 unexpected) in 0.264 (0.264) seconds
+    
+    = NAInteractiveDemoViewControllerSpec
+      Test Suite 'NAInteractiveDemoViewControllerSpec' started at 2014-06-15 14:58:43 +0000
+
+      -[NAInteractiveDemoViewControllerSpec doesn_t_display_any_pins]
