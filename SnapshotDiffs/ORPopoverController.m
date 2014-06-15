@@ -9,11 +9,23 @@
 #import "ORPopoverController.h"
 #import "ORLogReader.h"
 #import "ORCommandView.h"
+#import "ORSlidingImageView.h"
+@import Quartz;
 
 @interface ORPopoverController ()
+
+@property (strong) IBOutlet NSView *mainView;
+@property (strong) IBOutlet NSView *detailView;
+
+@property (weak) IBOutlet NSTableView *testTableView;
+@property (weak) IBOutlet ORSlidingImageView *detailSlidingView;
+
 @property (weak) IBOutlet NSTextField *failingTestsTitle;
 @property (weak) IBOutlet NSButton *openAllButton;
+
 @property (nonatomic, strong) ORLogReader *reader;
+@property (nonatomic, strong) CATransition *masterDetailTransition;
+
 @end
 
 @implementation ORPopoverController
@@ -33,6 +45,14 @@
     self.failingTestsTitle.stringValue = [NSString stringWithFormat:@"%@ Failing snapshot tests", @(self.reader.uniqueDiffCommands.count)];
     
     [[self.openAllButton cell] setHighlightsBy:NSContentsCellMask];
+    
+    [self.testTableView setTarget:self];
+    [self.testTableView setDoubleAction:@selector(doubleClickCell:)];
+    
+    _masterDetailTransition = [CATransition animation];
+    [self.masterDetailTransition setType:kCATransitionPush];
+    [self.masterDetailTransition setSubtype:kCATransitionFromLeft];
+    [self.view setAnimations:@{ @"subviews" : self.masterDetailTransition}];
 }
 
 - (IBAction)openAll:(id)sender
@@ -52,7 +72,8 @@
     return self.reader.uniqueDiffCommands[row];
 }
 
-- (NSView *)tableView:(NSTableView *)tableView viewForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
+- (NSView *)tableView:(NSTableView *)tableView viewForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row
+{
     ORKaleidoscopeCommand *command = [self commandForRow:row];
     
     ORCommandView *commandView = [tableView makeViewWithIdentifier:@"command" owner:self];
@@ -62,7 +83,32 @@
     commandView.command = command;
     
     return commandView;
+}
 
+- (void)doubleClickCell:(NSTableView *)tableView
+{
+    NSInteger row = [tableView clickedRow];
+    ORKaleidoscopeCommand *command = [self commandForRow:row];
+    
+    self.detailSlidingView.frontImage = [[NSImage alloc] initWithContentsOfFile:command.beforePath];
+    self.detailSlidingView.backImage = [[NSImage alloc] initWithContentsOfFile:command.afterPath];
+    
+    [self.masterDetailTransition setSubtype:kCATransitionFromRight];
+    [self.view.animator replaceSubview:self.mainView with:self.detailView];
+}
+
+- (IBAction)backButtonTapped:(id)sender
+{
+    [self.masterDetailTransition setSubtype:kCATransitionFromLeft];
+    [self.view.animator replaceSubview:self.detailView with:self.mainView];
+}
+
+// Other wise mainView goes out of scope on transitions
+
+- (void)dealloc
+{
+    self.mainView = nil;
+    self.detailView = nil;
 }
 
 @end
