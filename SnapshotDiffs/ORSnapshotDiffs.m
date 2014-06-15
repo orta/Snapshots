@@ -48,7 +48,7 @@ static ORSnapshotDiffs *sharedPlugin;
                             
                             // Get the original switch view
                             NSView *switchView = orig.view;
-                            CGSize viewSize = (CGSize){ 120, 25 };
+                            CGSize viewSize = (CGSize){ 160, 25 };
 
                             // Make a new container that's wider
                             NSView *holder = [[NSView alloc] initWithFrame:(CGRect){0, 0, viewSize}];
@@ -62,14 +62,22 @@ static ORSnapshotDiffs *sharedPlugin;
                             
                             NSBundle *bundle = [NSBundle bundleForClass:ORSnapshotDiffs.class];
                             NSImage *image = [bundle imageForResource:@"SnapshotToolbarIcon"];
-
+                            NSImage *separatorImage = [bundle imageForResource:@"SeparatorImage"];
+                            
+                            NSImageView *imageView = [[NSImageView alloc] initWithFrame:CGRectMake(newSwitchFrame.origin.x - 10, 3, 2, 18)];
+                            imageView.image = separatorImage;
+                            [holder addSubview:imageView];
+                            
                             // Make the damn button
-                            NSButton *snapshotButton = [[NSButton alloc] initWithFrame:NSMakeRect(0, 1, 20, 25)];
+                            CGRect snapshotFrame = CGRectMake(imageView.frame.origin.x - 14 - 20, 0, 20, 25);
+                            NSButton *snapshotButton = [[NSButton alloc] initWithFrame:snapshotFrame];
                             snapshotButton.image = image;
-                            [snapshotButton setButtonType:NSMomentaryLightButton];
+                            snapshotButton.alternateImage = image;
+                            [snapshotButton setButtonType:NSMomentaryPushInButton];
                             [snapshotButton setBezelStyle:NSShadowlessSquareBezelStyle];
                             [snapshotButton setImagePosition:NSImageOnly];
                             [snapshotButton setBordered:NO];
+                            [[snapshotButton cell] setHighlightsBy:NSContentsCellMask];
 
                             [snapshotButton setTarget:sharedPlugin];
                             [snapshotButton setAction:@selector(tappedButton:)];
@@ -93,7 +101,7 @@ static ORSnapshotDiffs *sharedPlugin;
 {
     if (self.reader.hasSnapshotTestErrors) {
         NSPopover *popover = [[NSPopover alloc] init];
-
+        popover.contentSize = CGSizeMake(320, 480);
         NSString *class = NSStringFromClass(ORPopoverController.class);
         NSBundle *bundle = [NSBundle bundleForClass:ORSnapshotDiffs.class];
 
@@ -123,7 +131,10 @@ static ORSnapshotDiffs *sharedPlugin;
 {
     NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
     [center addObserver:self selector:@selector(resetLog:) name:@"IDEBuildOperationWillStartNotification" object:nil];
-    
+
+    [center addObserver:self selector:@selector(windowDidBecomeKey:) name:NSWindowDidBecomeKeyNotification object:nil];
+    [center addObserver:self selector:@selector(windowDidResignKey:) name:NSWindowDidResignKeyNotification object:nil];
+
     NSArray *notifications = @[
         @"IDEWorkspaceDocumentWillWriteStateDataNotification",
         @"IDEBuildOperationDidStopNotification",
@@ -143,9 +154,25 @@ static ORSnapshotDiffs *sharedPlugin;
     NSImage *image = [bundle imageForResource:imagePath];
     
     for (NSButton *button in self.buttons) {
-        [button setImage:image];
+        button.image = image;
+        button.alternateImage = image;
     }
 }
+
+- (void)windowDidBecomeKey:(NSNotification *)notification
+{
+    for (NSButton *button in self.buttons) {
+        [button setAlphaValue:1];
+    }
+}
+
+- (void)windowDidResignKey:(NSNotification *)notification
+{
+    for (NSButton *button in self.buttons) {
+        [button setAlphaValue:0.5];
+    }
+}
+
 
 - (void)resetLog:(NSNotification *)notification
 {

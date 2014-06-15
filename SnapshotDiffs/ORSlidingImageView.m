@@ -156,5 +156,12 @@ static CGFloat ORContentInset = 8;
 	return maskPath;
 }
 
+- (void)mouseUp:(NSEvent *)event
+{
+    NSInteger clickCount = [event clickCount];
+    if (clickCount == 2 && self.clickDelegate) {
+        [self.clickDelegate doubleClickedOnSlidingView:self];
+    }
+}
 
 @end

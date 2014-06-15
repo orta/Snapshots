@@ -12,7 +12,7 @@
 #import "ORSlidingImageView.h"
 @import Quartz;
 
-@interface ORPopoverController ()
+@interface ORPopoverController () <ORSlidingImageViewClickDelegate>
 
 @property (strong) IBOutlet NSView *mainView;
 @property (strong) IBOutlet NSView *detailView;
@@ -77,9 +77,13 @@
     ORKaleidoscopeCommand *command = [self commandForRow:row];
     
     ORCommandView *commandView = [tableView makeViewWithIdentifier:@"command" owner:self];
-    commandView.fromImageView.image = [[NSImage alloc] initWithContentsOfFile:command.beforePath];
-    commandView.toImageView.image = [[NSImage alloc] initWithContentsOfFile:command.afterPath];
+    NSImage *before = [[NSImage alloc] initWithContentsOfFile:command.beforePath];
+    NSImage *to = [[NSImage alloc] initWithContentsOfFile:command.afterPath];
+    commandView.fromImageView.image = before;
+    commandView.toImageView.image = to;
+    
     commandView.testCaseTitle.stringValue = command.testCase.name;
+    
     commandView.command = command;
     
     return commandView;
@@ -92,9 +96,15 @@
     
     self.detailSlidingView.frontImage = [[NSImage alloc] initWithContentsOfFile:command.beforePath];
     self.detailSlidingView.backImage = [[NSImage alloc] initWithContentsOfFile:command.afterPath];
+    self.detailSlidingView.clickDelegate = self;
     
     [self.masterDetailTransition setSubtype:kCATransitionFromRight];
     [self.view.animator replaceSubview:self.mainView with:self.detailView];
+}
+
+- (void)doubleClickedOnSlidingView:(ORSlidingImageView *)imageView
+{
+    [self backButtonTapped:self];
 }
 
 - (IBAction)backButtonTapped:(id)sender

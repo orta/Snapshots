@@ -52,7 +52,27 @@
     if (components.count == 2 && endComponents.count == 2) {
         ORTestCase *testCase = [[ORTestCase alloc] init];
         testCase.commands = [NSMutableArray array];
-        testCase.name = [[components.lastObject componentsSeparatedByString:@"'"] firstObject];
+
+        // Let's make it readable
+        NSString *name = [[components.lastObject componentsSeparatedByString:@"'"] firstObject];
+        name = [[name componentsSeparatedByString:@" "] lastObject];
+        name = [[name componentsSeparatedByString:@"]"] firstObject];
+        name = [name stringByReplacingOccurrencesOfString:@"_" withString:@" "];
+
+        // We avoid hitting ends of words by addng the space, but that potentially misses the first one
+        name = [@" " stringByAppendingString:name];
+        name = [name stringByReplacingOccurrencesOfString:@" hasn t" withString:@" hasn't"];
+        name = [name stringByReplacingOccurrencesOfString:@" isn t" withString:@" isn't"];
+        name = [name stringByReplacingOccurrencesOfString:@" won t" withString:@" won't"];
+        name = [name stringByReplacingOccurrencesOfString:@" don t" withString:@" don't"];
+        name = [name stringByReplacingOccurrencesOfString:@" doesn t" withString:@" doesn't"];
+        name = [name stringByReplacingOccurrencesOfString:@" shouldn t" withString:@" shouldn't"];
+        name = [name stringByReplacingOccurrencesOfString:@" can t" withString:@" can't"];
+        
+        // So we take the 2nd char and move it to be the first
+        NSString *firstCharacterCaps = [[name substringWithRange:NSMakeRange(1, 1)] uppercaseString];
+        name = [name stringByReplacingCharactersInRange:NSMakeRange(0,2) withString:firstCharacterCaps];
+        testCase.name = name;
         return testCase;
     }
 

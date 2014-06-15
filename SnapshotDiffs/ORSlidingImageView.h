@@ -8,9 +8,18 @@
 
 #import <Cocoa/Cocoa.h>
 
+@class ORSlidingImageView;
+@protocol ORSlidingImageViewClickDelegate <NSObject>
+
+- (void)doubleClickedOnSlidingView:(ORSlidingImageView *)imageView;
+
+@end
+
 @interface ORSlidingImageView : NSView
 
 @property (nonatomic, strong) NSImage *frontImage;
 @property (nonatomic, strong) NSImage *backImage;
+
+@property (nonatomic, weak) id <ORSlidingImageViewClickDelegate> clickDelegate;
 
 @end

@@ -23,6 +23,7 @@
 		6020BD7A194E14E10027B265 /* BackArrowActive.png in Resources */ = {isa = PBXBuildFile; fileRef = 6020BD78194E14E10027B265 /* BackArrowActive.png */; };
 		6020BD7B194E14E10027B265 /* BackArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 6020BD79194E14E10027B265 /* BackArrow.png */; };
 		6020BD88194E3F7B0027B265 /* ORSlidingImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6020BD87194E3F7B0027B265 /* ORSlidingImageView.m */; };
+		6020BD8A194E50DE0027B265 /* SeparatorImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 6020BD89194E50DE0027B265 /* SeparatorImage.png */; };
 		605A0232194A34A500920397 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 605A0231194A34A500920397 /* AppKit.framework */; };
 		605A0234194A34A500920397 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 605A0233194A34A500920397 /* Foundation.framework */; };
 		605A023A194A34A500920397 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 605A0238194A34A500920397 /* InfoPlist.strings */; };
@@ -53,6 +54,7 @@
 		6020BD79194E14E10027B265 /* BackArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BackArrow.png; sourceTree = "<group>"; };
 		6020BD86194E3F7B0027B265 /* ORSlidingImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORSlidingImageView.h; sourceTree = "<group>"; };
 		6020BD87194E3F7B0027B265 /* ORSlidingImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORSlidingImageView.m; sourceTree = "<group>"; };
+		6020BD89194E50DE0027B265 /* SeparatorImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SeparatorImage.png; sourceTree = "<group>"; };
 		605A022E194A34A500920397 /* SnapshotDiffs.xcplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SnapshotDiffs.xcplugin; sourceTree = BUILT_PRODUCTS_DIR; };
 		605A0231194A34A500920397 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		605A0233194A34A500920397 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -164,6 +166,7 @@
 		605A0236194A34A500920397 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				6020BD89194E50DE0027B265 /* SeparatorImage.png */,
 				6020BD78194E14E10027B265 /* BackArrowActive.png */,
 				6020BD79194E14E10027B265 /* BackArrow.png */,
 				6020BD74194E09470027B265 /* ViewDiffImageActive.png */,
@@ -241,6 +244,7 @@
 				6020BD77194E09470027B265 /* ViewDiffImage.png in Resources */,
 				6018B70F194DEFB4001981D7 /* OutputExamples in Resources */,
 				6020BD76194E09470027B265 /* ViewDiffImageActive.png in Resources */,
+				6020BD8A194E50DE0027B265 /* SeparatorImage.png in Resources */,
 				605A023A194A34A500920397 /* InfoPlist.strings in Resources */,
 				6020BD73194E08210027B265 /* KaleidoscopeAllButtonActive.png in Resources */,
 			);
