@@ -12,7 +12,7 @@
 #import "ORSlidingImageView.h"
 @import Quartz;
 
-@interface ORPopoverController () <ORSlidingImageViewClickDelegate>
+@interface ORPopoverController ()
 
 @property (strong) IBOutlet NSView *mainView;
 @property (strong) IBOutlet NSView *detailView;
@@ -21,10 +21,14 @@
 @property (weak) IBOutlet ORSlidingImageView *detailSlidingView;
 
 @property (weak) IBOutlet NSTextField *failingTestsTitle;
+
 @property (weak) IBOutlet NSButton *openAllButton;
+@property (weak) IBOutlet NSButton *openCurrentButton;
 
 @property (nonatomic, strong) ORLogReader *reader;
 @property (nonatomic, strong) CATransition *masterDetailTransition;
+
+@property (nonatomic, weak) ORKaleidoscopeCommand *currentCommand;
 
 @end
 
@@ -42,17 +46,13 @@
 
 - (void)awakeFromNib
 {
-    self.failingTestsTitle.stringValue = [NSString stringWithFormat:@"%@ Failing snapshot tests", @(self.reader.uniqueDiffCommands.count)];
+    self.failingTestsTitle.stringValue = [NSString stringWithFormat:@"%@ Failing snapshots", @(self.reader.uniqueDiffCommands.count)];
     
     [[self.openAllButton cell] setHighlightsBy:NSContentsCellMask];
-    
-    [self.testTableView setTarget:self];
-    [self.testTableView setDoubleAction:@selector(doubleClickCell:)];
-    
-    _masterDetailTransition = [CATransition animation];
-    [self.masterDetailTransition setType:kCATransitionPush];
-    [self.masterDetailTransition setSubtype:kCATransitionFromLeft];
-    [self.view setAnimations:@{ @"subviews" : self.masterDetailTransition}];
+    [[self.openCurrentButton cell] setHighlightsBy:NSContentsCellMask];
+
+    [self.testTableView becomeFirstResponder];
+    [self tableViewSelectionDidChange:nil];
 }
 
 - (IBAction)openAll:(id)sender
@@ -77,41 +77,27 @@
     ORKaleidoscopeCommand *command = [self commandForRow:row];
     
     ORCommandView *commandView = [tableView makeViewWithIdentifier:@"command" owner:self];
-    NSImage *before = [[NSImage alloc] initWithContentsOfFile:command.beforePath];
-    NSImage *to = [[NSImage alloc] initWithContentsOfFile:command.afterPath];
-    commandView.fromImageView.image = before;
-    commandView.toImageView.image = to;
-    
-    commandView.testCaseTitle.stringValue = command.testCase.name;
-    
-    commandView.command = command;
+    [commandView prepareWithCommand:command];
     
     return commandView;
 }
 
-- (void)doubleClickCell:(NSTableView *)tableView
+- (void)tableViewSelectionDidChange: (NSNotification *) notification
 {
-    NSInteger row = [tableView clickedRow];
+    NSInteger row = [self.testTableView selectedRow];
     ORKaleidoscopeCommand *command = [self commandForRow:row];
-    
+
     self.detailSlidingView.frontImage = [[NSImage alloc] initWithContentsOfFile:command.beforePath];
     self.detailSlidingView.backImage = [[NSImage alloc] initWithContentsOfFile:command.afterPath];
-    self.detailSlidingView.clickDelegate = self;
-    
-    [self.masterDetailTransition setSubtype:kCATransitionFromRight];
-    [self.view.animator replaceSubview:self.mainView with:self.detailView];
+
+    self.currentCommand = command;
 }
 
-- (void)doubleClickedOnSlidingView:(ORSlidingImageView *)imageView
+- (IBAction)tappedCurrentDiff:(id)sender
 {
-    [self backButtonTapped:self];
+    [self.currentCommand launch];
 }
 
-- (IBAction)backButtonTapped:(id)sender
-{
-    [self.masterDetailTransition setSubtype:kCATransitionFromLeft];
-    [self.view.animator replaceSubview:self.detailView with:self.mainView];
-}
 
 // Other wise mainView goes out of scope on transitions
 

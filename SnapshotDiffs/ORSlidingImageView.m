@@ -8,6 +8,7 @@
 
 #import "ORSlidingImageView.h"
 #import <Quartz/Quartz.h>
+#import "NSColor+ORSnapshotColours.h"
 
 static CGFloat ORContentInset = 8;
 
@@ -23,30 +24,36 @@ static CGFloat ORContentInset = 8;
 - (void)setFrontImage:(NSImage *)frontImage
 {
     _frontImage = frontImage;
-    NSImageView *frontImageView = [self createImageView];
-    frontImageView.image = frontImage;
-    [self addSubview:frontImageView];
-
-    self.frontImageView = frontImageView;
     
-    self.frontImageView.layer.borderColor = [NSColor colorWithCalibratedRed:0.919 green:0.179 blue:0.287 alpha:1.000].CGColor;
+    if (!self.frontImageView) {
+        NSImageView *frontImageView = [self createImageView];
+        [self addSubview:frontImageView];
+        
+        self.frontImageView = frontImageView;
+        self.frontImageView.layer.borderColor = [NSColor or_redColour].CGColor;
+    }
+    
+    self.frontImageView.image = frontImage;
 }
 
 - (void)setBackImage:(NSImage *)backImage
 {
     _backImage = backImage;
-    NSImageView *backImageView = [self createImageView];
-    backImageView.image = backImage;
+    if (!self.backImageView) {
+        NSImageView *backImageView = [self createImageView];
+        
+        NSView *front = self.frontImageView;
+        [self.frontImageView removeFromSuperview];
+        [self addSubview:backImageView];
+        [self addSubview:front];
+        
+        backImageView.layer.borderColor = [NSColor or_greenColour].CGColor;
+        self.backImageView = backImageView;
+        
+        [self createDivider];
+    }
     
-    NSView *front = self.frontImageView;
-    [self.frontImageView removeFromSuperview];
-    [self addSubview:backImageView];
-    [self addSubview:front];
-    
-    backImageView.layer.borderColor = [NSColor colorWithCalibratedRed:0.194 green:0.707 blue:0.101 alpha:1.000].CGColor;
-    self.backImageView = backImageView;
-    
-    [self createDivider];
+    self.backImageView.image = backImage;
     [self maskViewsWithX:CGRectGetMidX(self.bounds)];
 }
 
@@ -154,14 +161,6 @@ static CGFloat ORContentInset = 8;
 	CGPathCloseSubpath(maskPath);
 	
 	return maskPath;
-}
-
-- (void)mouseUp:(NSEvent *)event
-{
-    NSInteger clickCount = [event clickCount];
-    if (clickCount == 2 && self.clickDelegate) {
-        [self.clickDelegate doubleClickedOnSlidingView:self];
-    }
 }
 
 @end

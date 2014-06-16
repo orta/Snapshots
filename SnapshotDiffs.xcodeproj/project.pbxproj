@@ -29,6 +29,7 @@
 		605A023A194A34A500920397 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 605A0238194A34A500920397 /* InfoPlist.strings */; };
 		605A023D194A34A500920397 /* ORSnapshotDiffs.m in Sources */ = {isa = PBXBuildFile; fileRef = 605A023C194A34A500920397 /* ORSnapshotDiffs.m */; };
 		60B22BD7194A39A700D72E46 /* ORLogReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 60B22BD6194A39A700D72E46 /* ORLogReader.m */; };
+		60B572B2194E6D2D002B9A46 /* NSColor+ORSnapshotColours.m in Sources */ = {isa = PBXBuildFile; fileRef = 60B572B1194E6D2D002B9A46 /* NSColor+ORSnapshotColours.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,6 +66,8 @@
 		605A023E194A34A500920397 /* SnapshotDiffs-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SnapshotDiffs-Prefix.pch"; sourceTree = "<group>"; };
 		60B22BD5194A39A700D72E46 /* ORLogReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORLogReader.h; sourceTree = "<group>"; };
 		60B22BD6194A39A700D72E46 /* ORLogReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORLogReader.m; sourceTree = "<group>"; };
+		60B572B0194E6D2D002B9A46 /* NSColor+ORSnapshotColours.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSColor+ORSnapshotColours.h"; sourceTree = "<group>"; };
+		60B572B1194E6D2D002B9A46 /* NSColor+ORSnapshotColours.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSColor+ORSnapshotColours.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +162,8 @@
 				6018B70B194DE654001981D7 /* Controllers */,
 				6018B70A194DE648001981D7 /* Externs */,
 				605A0236194A34A500920397 /* Supporting Files */,
+				60B572B0194E6D2D002B9A46 /* NSColor+ORSnapshotColours.h */,
+				60B572B1194E6D2D002B9A46 /* NSColor+ORSnapshotColours.m */,
 			);
 			path = SnapshotDiffs;
 			sourceTree = "<group>";
@@ -264,6 +269,7 @@
 				6014D785194B9EE000CB802D /* ORCommandView.m in Sources */,
 				605A023D194A34A500920397 /* ORSnapshotDiffs.m in Sources */,
 				6018B712194DF0A8001981D7 /* ORTestsSuiteModels.m in Sources */,
+				60B572B2194E6D2D002B9A46 /* NSColor+ORSnapshotColours.m in Sources */,
 				6018B709194DE589001981D7 /* ORKaleidoscopeController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

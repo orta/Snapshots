@@ -101,7 +101,7 @@ static ORSnapshotDiffs *sharedPlugin;
 {
     if (self.reader.hasSnapshotTestErrors) {
         NSPopover *popover = [[NSPopover alloc] init];
-        popover.contentSize = CGSizeMake(320, 480);
+        popover.contentSize = CGSizeMake(575, 480);
         NSString *class = NSStringFromClass(ORPopoverController.class);
         NSBundle *bundle = [NSBundle bundleForClass:ORSnapshotDiffs.class];
 

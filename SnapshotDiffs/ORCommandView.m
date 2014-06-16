@@ -8,14 +8,29 @@
 
 #import "ORCommandView.h"
 #import "ORLogReader.h"
+#import "NSColor+ORSnapshotColours.h"
 
 @implementation ORCommandView
 
 // YOLOViewOkay
 
-- (IBAction)openCommand:(id)sender
-{
-    [self.command launch];
+
+- (void)prepareWithCommand:(ORKaleidoscopeCommand *)command
+{    
+    NSImage *before = [[NSImage alloc] initWithContentsOfFile:command.beforePath];
+    NSImage *to = [[NSImage alloc] initWithContentsOfFile:command.afterPath];
+    
+    self.fromImageView.imageFrameStyle = NSImageFrameNone;
+    self.toImageView.imageFrameStyle = NSImageFrameNone;
+    
+    self.fromImageView.layer.borderWidth = 1;
+    self.toImageView.layer.borderWidth = 1;
+    
+    self.fromImageView.layer.borderColor = [NSColor or_greenColour].CGColor;
+    self.toImageView.layer.borderColor = [NSColor or_redColour].CGColor;
+    
+    self.fromImageView.image = before;
+    self.toImageView.image = to;
 }
 
 @end

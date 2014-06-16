@@ -10,13 +10,11 @@
 
 @class ORKaleidoscopeCommand;
 
-@interface ORCommandView : NSTableCellView
+@interface ORCommandView : NSTableRowView
 
 @property (weak) IBOutlet NSImageView *fromImageView;
 @property (weak) IBOutlet NSImageView *toImageView;
 
-@property (weak) IBOutlet NSTextField *testCaseTitle;
-
-@property (weak) ORKaleidoscopeCommand *command;
+- (void)prepareWithCommand:(ORKaleidoscopeCommand *)command;
 
 @end
