@@ -30,6 +30,7 @@
 		605A023D194A34A500920397 /* ORSnapshotDiffs.m in Sources */ = {isa = PBXBuildFile; fileRef = 605A023C194A34A500920397 /* ORSnapshotDiffs.m */; };
 		60B22BD7194A39A700D72E46 /* ORLogReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 60B22BD6194A39A700D72E46 /* ORLogReader.m */; };
 		60B572B2194E6D2D002B9A46 /* NSColor+ORSnapshotColours.m in Sources */ = {isa = PBXBuildFile; fileRef = 60B572B1194E6D2D002B9A46 /* NSColor+ORSnapshotColours.m */; };
+		60F92FD0194FCABA00F78EBA /* NSFileManager+RecursiveFind.m in Sources */ = {isa = PBXBuildFile; fileRef = 60F92FCF194FCABA00F78EBA /* NSFileManager+RecursiveFind.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +69,8 @@
 		60B22BD6194A39A700D72E46 /* ORLogReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORLogReader.m; sourceTree = "<group>"; };
 		60B572B0194E6D2D002B9A46 /* NSColor+ORSnapshotColours.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSColor+ORSnapshotColours.h"; sourceTree = "<group>"; };
 		60B572B1194E6D2D002B9A46 /* NSColor+ORSnapshotColours.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSColor+ORSnapshotColours.m"; sourceTree = "<group>"; };
+		60F92FCF194FCABA00F78EBA /* NSFileManager+RecursiveFind.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFileManager+RecursiveFind.m"; sourceTree = "<group>"; };
+		60F92FD1194FCB3200F78EBA /* NSFileManager+RecursiveFind.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSFileManager+RecursiveFind.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +125,8 @@
 				60B22BD6194A39A700D72E46 /* ORLogReader.m */,
 				6018B710194DF0A8001981D7 /* ORTestsSuiteModels.h */,
 				6018B711194DF0A8001981D7 /* ORTestsSuiteModels.m */,
+				60F92FD1194FCB3200F78EBA /* NSFileManager+RecursiveFind.h */,
+				60F92FCF194FCABA00F78EBA /* NSFileManager+RecursiveFind.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -266,6 +271,7 @@
 				6014D781194B949F00CB802D /* ORPopoverController.m in Sources */,
 				60B22BD7194A39A700D72E46 /* ORLogReader.m in Sources */,
 				6014D779194B5D2900CB802D /* JGMethodSwizzler.m in Sources */,
+				60F92FD0194FCABA00F78EBA /* NSFileManager+RecursiveFind.m in Sources */,
 				6014D785194B9EE000CB802D /* ORCommandView.m in Sources */,
 				605A023D194A34A500920397 /* ORSnapshotDiffs.m in Sources */,
 				6018B712194DF0A8001981D7 /* ORTestsSuiteModels.m in Sources */,

@@ -12,6 +12,10 @@
 #import "JGMethodSwizzler.h"
 #import "ORPopoverController.h"
 
+// Add support for:
+// 2014-06-16 11:34:57.579 ArtsyFolio[45418:60b] /Users/orta/dev/ios/energy/ArtsyFolio Tests/ARAdminPartnerSelectViewControllerTests.m:40 snapshot looks_right_on_phone successfully recorded, replace recordSnapshot with a check
+
+
 static ORSnapshotDiffs *sharedPlugin;
 
 @interface ORSnapshotDiffs()

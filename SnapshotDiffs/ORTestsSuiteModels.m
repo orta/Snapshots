@@ -7,6 +7,7 @@
 //
 
 #import "ORTestsSuiteModels.h"
+#import "NSFileManager+RecursiveFind.h"
 
 @implementation ORTestSuite
 
@@ -52,6 +53,7 @@
     if (components.count == 2 && endComponents.count == 2) {
         ORTestCase *testCase = [[ORTestCase alloc] init];
         testCase.commands = [NSMutableArray array];
+        testCase.snapshots = [NSMutableArray array];
 
         // Let's make it readable
         NSString *name = [[components.lastObject componentsSeparatedByString:@"'"] firstObject];
@@ -83,6 +85,12 @@
 {
     [self.commands addObject:command];
     command.testCase = self;
+}
+
+- (void)addSnapshot:(ORSnapshotCreationReference *)snapshot
+{
+    [self.snapshots addObject:snapshot];
+    snapshot.testCase = self;
 }
 
 - (BOOL)hasFailingTests
@@ -126,5 +134,38 @@
     [task setArguments: arguments];
     [task launch];
 }
+
+@end
+
+
+@implementation ORSnapshotCreationReference
+
++ (instancetype)referenceFromString:(NSString *)line
+{
+    // 2014-06-16 11:34:57.579 ArtsyFolio[45418:60b] /Users/orta/dev/ios/energy/ArtsyFolio Tests/ARAdminPartnerSelectViewControllerTests.m:40 snapshot looks_right_on_phone successfully recorded, replace recordSnapshot with a check
+    
+    NSArray *components = [line componentsSeparatedByString:@"snapshot "];
+    NSArray *endComponents = [line componentsSeparatedByString:@" successfully recorded, replace recordSnapshot with a check"];
+    
+    if (components.count == 2 && endComponents.count == 2) {
+
+        ORSnapshotCreationReference *obj = [[self alloc] init];
+        obj.name = [[endComponents.firstObject componentsSeparatedByString:@"snapshot"].lastObject stringByReplacingOccurrencesOfString:@" " withString:@""];
+        return obj;
+    }
+    return nil;
+}
+
+
+- (BOOL)isEqual:(ORSnapshotCreationReference *)anObject
+{
+    return [self.path isEqual:anObject.path];
+}
+
+- (NSUInteger)hash
+{
+    return self.path.hash;
+}
+
 
 @end

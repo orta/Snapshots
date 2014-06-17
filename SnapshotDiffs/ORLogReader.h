@@ -14,6 +14,8 @@
 - (NSArray *)uniqueDiffCommands;
 - (NSArray *)ksdiffCommands;
 - (NSString *)log;
+
+- (BOOL)hasNewSnapshots;
 - (BOOL)hasSnapshotTestErrors;
 - (void)erase;
 

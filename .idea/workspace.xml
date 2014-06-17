@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c0f2ecd7-ba0d-4145-a879-69db41c370c5" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SnapshotDiffs/KaleidoscopeAllButton.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Resources/snapshot-toolbar-icons.sketch/Data" afterPath="$PROJECT_DIR$/Resources/snapshot-toolbar-icons.sketch/Data" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SnapshotDiffs/ORPopoverController.xib" afterPath="$PROJECT_DIR$/SnapshotDiffs/ORPopoverController.xib" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Resources/snapshot-toolbar-icons.sketch/metadata" afterPath="$PROJECT_DIR$/Resources/snapshot-toolbar-icons.sketch/metadata" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SnapshotDiffs.xcodeproj/project.pbxproj" afterPath="$PROJECT_DIR$/SnapshotDiffs.xcodeproj/project.pbxproj" />
-    </list>
+    <list default="true" id="c0f2ecd7-ba0d-4145-a879-69db41c370c5" name="Default" comment="" />
     <ignored path="SnapshotDiffs.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -32,7 +26,7 @@
       <file leaf-file-name="ORSnapshotDiffs.m" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/SnapshotDiffs/ORSnapshotDiffs.m">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="112" column="25" selection-start="4728" selection-end="4728" vertical-scroll-proportion="0.9302326" vertical-offset="1520" max-vertical-offset="3788">
+            <state line="127" column="1" selection-start="5603" selection-end="5603" vertical-scroll-proportion="0.6104651" vertical-offset="2040" max-vertical-offset="4328">
               <folding />
             </state>
           </provider>
@@ -130,6 +124,7 @@
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="recentsLimit" value="5" />
     <property name="options.lastSelected" value="preferences.sourceCode" />
+    <property name="FullScreen" value="false" />
     <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
   </component>
@@ -230,7 +225,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/SnapshotDiffs/ORSnapshotDiffs.m">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="112" column="25" selection-start="4728" selection-end="4728" vertical-scroll-proportion="0.9302326" vertical-offset="1520" max-vertical-offset="3788">
+        <state line="127" column="1" selection-start="5603" selection-end="5603" vertical-scroll-proportion="0.6104651" vertical-offset="2040" max-vertical-offset="4328">
           <folding />
         </state>
       </provider>

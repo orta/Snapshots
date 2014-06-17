@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@class ORTestCase, ORKaleidoscopeCommand;
+@class ORTestCase, ORKaleidoscopeCommand, ORSnapshotCreationReference;
 
 @interface ORTestSuite : NSObject
 @property (nonatomic, copy) NSString *name;
@@ -20,22 +20,35 @@
 @end
 
 @interface ORTestCase : NSObject
+
 @property (nonatomic, copy) NSString *name;
 @property (nonatomic, strong) NSMutableArray *commands;
+@property (nonatomic, strong) NSMutableArray *snapshots;
+
 @property (nonatomic, assign) BOOL hasFailingTests;
 
 + (ORTestCase *)caseFromString:(NSString *)line;
 - (void)addCommand:(ORKaleidoscopeCommand *)command;
+- (void)addSnapshot:(ORSnapshotCreationReference *)snapshot;
 @end
 
 
 @interface ORKaleidoscopeCommand : NSObject
 - (void)launch;
 
-@property (nonatomic, strong) NSString *beforePath;
-@property (nonatomic, strong) NSString *afterPath;
-@property (nonatomic, strong) NSString *fullCommand;
+@property (nonatomic, copy) NSString *beforePath;
+@property (nonatomic, copy) NSString *afterPath;
+@property (nonatomic, copy) NSString *fullCommand;
 @property (nonatomic, weak) ORTestCase *testCase;
 
 + (instancetype)commandFromString:(NSString *)command;
+@end
+
+@interface ORSnapshotCreationReference : NSObject
+
+@property (nonatomic, copy) NSString *name;
+@property (nonatomic, copy) NSString *path;
+@property (nonatomic, weak) ORTestCase *testCase;
+
++ (instancetype)referenceFromString:(NSString *)line;
 @end

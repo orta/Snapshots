@@ -7,6 +7,7 @@
 //
 
 #import "ORLogReader.h"
+#import "NSFileManager+RecursiveFind.h"
 
 // This is to allow using id with
 // https://github.com/luisobo/Xcode-RuntimeHeaders/blob/master/IDEFoundation/IDEConsoleItem.h
@@ -21,6 +22,7 @@
 
 @property (nonatomic, readonly, strong) NSMutableOrderedSet *mutableTestSuites;
 @property (nonatomic, readonly, strong) NSMutableOrderedSet *mutableDiffCommands;
+@property (nonatomic, readonly, strong) NSMutableOrderedSet *mutableSnapshotCreations;
 @end
 
 @implementation ORLogReader
@@ -73,13 +75,31 @@
                 [self.latestTestSuite.latestTestCase addCommand:command];
             }
         }
-        
+
+        if ([line rangeOfString:@"successfully recorded"].location != NSNotFound) {
+            ORSnapshotCreationReference *snapshot = [ORSnapshotCreationReference referenceFromString:line];
+            if (snapshot) {
+                ORTestCase *testCase = self.latestTestSuite.latestTestCase;
+                snapshot.path = [[NSFileManager defaultManager] or_findFileWithNamePrefix:snapshot.name inFolder:self.latestTestSuite.name];
+                
+                if (![self.mutableSnapshotCreations containsObject:snapshot]) {
+                    [self.mutableSnapshotCreations addObject:snapshot];
+                    [testCase addSnapshot:snapshot];
+                }
+            }
+        }
     }
 }
 
 - (NSString *)extractCommandFromLine:(NSString *)line
 {
     return [line componentsSeparatedByString:@"diff:\n"].lastObject;
+}
+
+- (BOOL)hasNewSnapshots
+{
+    return (self.mutableSnapshotCreations.count > 0);
+
 }
 
 - (BOOL)hasSnapshotTestErrors
@@ -109,6 +129,7 @@
     _mutableLog = [NSMutableString string];
     _mutableDiffCommands = [NSMutableOrderedSet orderedSet];
     _mutableTestSuites = [NSMutableOrderedSet orderedSet];
+    _mutableSnapshotCreations = [NSMutableOrderedSet orderedSet];
 }
 
 - (void)dealloc
