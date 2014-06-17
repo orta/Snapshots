@@ -31,6 +31,7 @@
 		6085FA93194FF03B00A71FD3 /* ORPopoverTableDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 6085FA92194FF03B00A71FD3 /* ORPopoverTableDataSource.m */; };
 		6085FA96194FF27400A71FD3 /* ORNewSnapshotView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6085FA95194FF27400A71FD3 /* ORNewSnapshotView.m */; };
 		6085FA99194FF45000A71FD3 /* ORTestCaseTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6085FA98194FF45000A71FD3 /* ORTestCaseTitleView.m */; };
+		6085FA9E1950050100A71FD3 /* ORTableViewRowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6085FA9D1950050100A71FD3 /* ORTableViewRowView.m */; };
 		60B22BD7194A39A700D72E46 /* ORLogReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 60B22BD6194A39A700D72E46 /* ORLogReader.m */; };
 		60B572B2194E6D2D002B9A46 /* NSColor+ORSnapshotColours.m in Sources */ = {isa = PBXBuildFile; fileRef = 60B572B1194E6D2D002B9A46 /* NSColor+ORSnapshotColours.m */; };
 		60F92FD0194FCABA00F78EBA /* NSFileManager+RecursiveFind.m in Sources */ = {isa = PBXBuildFile; fileRef = 60F92FCF194FCABA00F78EBA /* NSFileManager+RecursiveFind.m */; };
@@ -74,6 +75,8 @@
 		6085FA95194FF27400A71FD3 /* ORNewSnapshotView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORNewSnapshotView.m; sourceTree = "<group>"; };
 		6085FA97194FF45000A71FD3 /* ORTestCaseTitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORTestCaseTitleView.h; sourceTree = "<group>"; };
 		6085FA98194FF45000A71FD3 /* ORTestCaseTitleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORTestCaseTitleView.m; sourceTree = "<group>"; };
+		6085FA9C1950050100A71FD3 /* ORTableViewRowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORTableViewRowView.h; sourceTree = "<group>"; };
+		6085FA9D1950050100A71FD3 /* ORTableViewRowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORTableViewRowView.m; sourceTree = "<group>"; };
 		60B22BD5194A39A700D72E46 /* ORLogReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORLogReader.h; sourceTree = "<group>"; };
 		60B22BD6194A39A700D72E46 /* ORLogReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORLogReader.m; sourceTree = "<group>"; };
 		60B572B0194E6D2D002B9A46 /* NSColor+ORSnapshotColours.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSColor+ORSnapshotColours.h"; sourceTree = "<group>"; };
@@ -118,17 +121,13 @@
 		6018B70C194DE662001981D7 /* Visuals */ = {
 			isa = PBXGroup;
 			children = (
-				6014D783194B9EDF00CB802D /* ORCommandView.h */,
-				6014D784194B9EDF00CB802D /* ORCommandView.m */,
+				6085FA9B195004CF00A71FD3 /* TableView Highlight */,
+				6020BD86194E3F7B0027B265 /* ORSlidingImageView.h */,
+				6020BD87194E3F7B0027B265 /* ORSlidingImageView.m */,
+				6085FA9A195004B500A71FD3 /* TableViewViews */,
 				6014D77E194B949F00CB802D /* ORPopoverController.h */,
 				6014D77F194B949F00CB802D /* ORPopoverController.m */,
 				6014D780194B949F00CB802D /* ORPopoverController.xib */,
-				6020BD86194E3F7B0027B265 /* ORSlidingImageView.h */,
-				6020BD87194E3F7B0027B265 /* ORSlidingImageView.m */,
-				6085FA94194FF27400A71FD3 /* ORNewSnapshotView.h */,
-				6085FA95194FF27400A71FD3 /* ORNewSnapshotView.m */,
-				6085FA97194FF45000A71FD3 /* ORTestCaseTitleView.h */,
-				6085FA98194FF45000A71FD3 /* ORTestCaseTitleView.m */,
 			);
 			name = Visuals;
 			sourceTree = "<group>";
@@ -208,6 +207,28 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		6085FA9A195004B500A71FD3 /* TableViewViews */ = {
+			isa = PBXGroup;
+			children = (
+				6014D783194B9EDF00CB802D /* ORCommandView.h */,
+				6014D784194B9EDF00CB802D /* ORCommandView.m */,
+				6085FA94194FF27400A71FD3 /* ORNewSnapshotView.h */,
+				6085FA95194FF27400A71FD3 /* ORNewSnapshotView.m */,
+				6085FA97194FF45000A71FD3 /* ORTestCaseTitleView.h */,
+				6085FA98194FF45000A71FD3 /* ORTestCaseTitleView.m */,
+			);
+			name = TableViewViews;
+			sourceTree = "<group>";
+		};
+		6085FA9B195004CF00A71FD3 /* TableView Highlight */ = {
+			isa = PBXGroup;
+			children = (
+				6085FA9C1950050100A71FD3 /* ORTableViewRowView.h */,
+				6085FA9D1950050100A71FD3 /* ORTableViewRowView.m */,
+			);
+			name = "TableView Highlight";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -282,6 +303,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6085FA9E1950050100A71FD3 /* ORTableViewRowView.m in Sources */,
 				6020BD88194E3F7B0027B265 /* ORSlidingImageView.m in Sources */,
 				6014D781194B949F00CB802D /* ORPopoverController.m in Sources */,
 				60B22BD7194A39A700D72E46 /* ORLogReader.m in Sources */,

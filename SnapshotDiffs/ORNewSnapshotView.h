@@ -7,10 +7,11 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "ORTableViewRowView.h"
 
 @class ORSnapshotCreationReference;
 
-@interface ORNewSnapshotView : NSTableCellView
+@interface ORNewSnapshotView : ORTableViewRowView
 
 @property (weak) IBOutlet NSImageView *imageView;
 

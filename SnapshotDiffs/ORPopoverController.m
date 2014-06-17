@@ -11,6 +11,8 @@
 #import "ORCommandView.h"
 #import "ORSlidingImageView.h"
 #import "ORPopoverTableDataSource.h"
+#import "ORTableViewRowView.h"
+
 @import Quartz;
 
 @interface ORPopoverController ()
@@ -26,6 +28,9 @@
 
 @property (weak) IBOutlet NSButton *openAllButton;
 @property (weak) IBOutlet NSButton *openCurrentButton;
+@property (weak) IBOutlet NSTextField *detailTestDescription;
+
+@property (weak) ORTableViewRowView *currentTableViewSelection;
 
 @property (nonatomic, strong) ORLogReader *reader;
 @property (nonatomic, strong) CATransition *masterDetailTransition;
@@ -57,10 +62,15 @@
     [[self.openCurrentButton cell] setHighlightsBy:NSContentsCellMask];
 
     self.testTableView.dataSource = self.tableDataSource;
-    
+    [self.testTableView reloadData];
     [self.testTableView becomeFirstResponder];
     
     [self tableViewSelectionDidChange:nil];
+
+    NSInteger selectedRow = [self.testTableView selectedRow];
+    ORTableViewRowView *view = [self.testTableView viewAtColumn:0 row:selectedRow makeIfNecessary:YES];
+    self.currentTableViewSelection = view;
+    [view setSelected:YES];
 }
 
 - (IBAction)openAll:(id)sender
@@ -81,7 +91,7 @@
         
         self.detailSlidingView.frontImage = [[NSImage alloc] initWithContentsOfFile:[command beforePath]];
         self.detailSlidingView.backImage = [[NSImage alloc] initWithContentsOfFile:[command afterPath]];
-        
+        self.detailTestDescription.stringValue = [command testCase].name;
         self.currentCommand = command;
     }
     
@@ -90,7 +100,9 @@
         self.plainImagePreviewView.hidden = NO;
         
         self.plainImagePreviewView.image = [[NSImage alloc] initWithContentsOfFile:[command path]];
+        self.detailTestDescription.stringValue = [command testCase].name;
     }
+    
 }
 
 - (IBAction)tappedCurrentDiff:(id)sender
@@ -115,8 +127,17 @@
 
 - (BOOL)tableView:(NSTableView *)tableView shouldSelectRow:(NSInteger)row;
 {
-    return [self.tableDataSource tableView:tableView shouldSelectRow:row];
+    BOOL should = [self.tableDataSource tableView:tableView shouldSelectRow:row];
+    if (should) {
+        [self.currentTableViewSelection setSelected:NO];
+        ORTableViewRowView *view = [tableView viewAtColumn:0 row:row makeIfNecessary:NO];
+        self.currentTableViewSelection = view;
+        [view setSelected:YES];
+    }
+    return should;
 }
+
+
 
 // Other wise mainView goes out of scope on transitions
 

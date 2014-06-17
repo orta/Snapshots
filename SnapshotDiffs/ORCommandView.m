@@ -30,4 +30,12 @@
     self.toImageView.image = to;
 }
 
+-(void)setSelected:(BOOL)selected
+{
+    [super setSelected:selected];
+    [self setNeedsDisplay:YES];
+}
+
+
+
 @end

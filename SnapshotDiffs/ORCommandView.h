@@ -7,10 +7,11 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "ORTableViewRowView.h"
 
 @class ORKaleidoscopeCommand;
 
-@interface ORCommandView : NSTableRowView
+@interface ORCommandView : ORTableViewRowView
 
 @property (weak) IBOutlet NSImageView *fromImageView;
 @property (weak) IBOutlet NSImageView *toImageView;
