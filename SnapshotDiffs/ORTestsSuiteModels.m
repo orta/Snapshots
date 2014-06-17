@@ -41,6 +41,17 @@
     return NO;
 }
 
+- (BOOL)hasNewSnapshots
+{
+    for (ORTestCase *testCase in self.testCases) {
+        if (testCase.snapshots.count > 0) {
+            return YES;
+        }
+    }
+    return NO;
+}
+
+
 @end
 
 @implementation ORTestCase
@@ -95,8 +106,16 @@
 
 - (BOOL)hasFailingTests
 {
-    return self.commands.count > 0;
+    return self.uniqueDiffCommands.count > 0;
 }
+
+- (NSArray *)uniqueDiffCommands
+{
+    return [NSOrderedSet orderedSetWithArray: [self.commands filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(ORKaleidoscopeCommand *command, NSDictionary *bindings) {
+        return [[NSFileManager defaultManager] contentsEqualAtPath:command.afterPath andPath:command.beforePath] == NO;
+    }]]].array;
+}
+
 
 @end
 

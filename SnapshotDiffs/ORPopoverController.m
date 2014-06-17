@@ -10,6 +10,7 @@
 #import "ORLogReader.h"
 #import "ORCommandView.h"
 #import "ORSlidingImageView.h"
+#import "ORPopoverTableDataSource.h"
 @import Quartz;
 
 @interface ORPopoverController ()
@@ -19,6 +20,7 @@
 
 @property (weak) IBOutlet NSTableView *testTableView;
 @property (weak) IBOutlet ORSlidingImageView *detailSlidingView;
+@property (weak) IBOutlet NSImageView *plainImagePreviewView;
 
 @property (weak) IBOutlet NSTextField *failingTestsTitle;
 
@@ -27,6 +29,8 @@
 
 @property (nonatomic, strong) ORLogReader *reader;
 @property (nonatomic, strong) CATransition *masterDetailTransition;
+
+@property (nonatomic, strong) ORPopoverTableDataSource *tableDataSource;
 
 @property (nonatomic, weak) ORKaleidoscopeCommand *currentCommand;
 
@@ -40,6 +44,7 @@
     if (!self) return nil;
     
     _reader = reader;
+    _tableDataSource = [[ORPopoverTableDataSource alloc] initWithReader:reader];
     
     return self;
 }
@@ -51,7 +56,10 @@
     [[self.openAllButton cell] setHighlightsBy:NSContentsCellMask];
     [[self.openCurrentButton cell] setHighlightsBy:NSContentsCellMask];
 
+    self.testTableView.dataSource = self.tableDataSource;
+    
     [self.testTableView becomeFirstResponder];
+    
     [self tableViewSelectionDidChange:nil];
 }
 
@@ -62,40 +70,46 @@
     }
 }
 
-- (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView
-{
-    return self.reader.uniqueDiffCommands.count;
-}
-
-- (ORKaleidoscopeCommand *)commandForRow:(NSInteger)row
-{
-    return self.reader.uniqueDiffCommands[row];
-}
-
-- (NSView *)tableView:(NSTableView *)tableView viewForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row
-{
-    ORKaleidoscopeCommand *command = [self commandForRow:row];
-    
-    ORCommandView *commandView = [tableView makeViewWithIdentifier:@"command" owner:self];
-    [commandView prepareWithCommand:command];
-    
-    return commandView;
-}
-
-- (void)tableViewSelectionDidChange: (NSNotification *) notification
+- (void)tableViewSelectionDidChange:(NSNotification *)notification
 {
     NSInteger row = [self.testTableView selectedRow];
-    ORKaleidoscopeCommand *command = [self commandForRow:row];
+    id command = [self.tableDataSource objectForRow:row];
 
-    self.detailSlidingView.frontImage = [[NSImage alloc] initWithContentsOfFile:command.beforePath];
-    self.detailSlidingView.backImage = [[NSImage alloc] initWithContentsOfFile:command.afterPath];
-
-    self.currentCommand = command;
+    if ([command isKindOfClass:ORKaleidoscopeCommand.class]) {
+        self.detailSlidingView.hidden = NO;
+        self.plainImagePreviewView.hidden = YES;
+        
+        self.detailSlidingView.frontImage = [[NSImage alloc] initWithContentsOfFile:[command beforePath]];
+        self.detailSlidingView.backImage = [[NSImage alloc] initWithContentsOfFile:[command afterPath]];
+        
+        self.currentCommand = command;
+    }
+    if ([command isKindOfClass:ORSnapshotCreationReference.class]) {
+        self.detailSlidingView.hidden = YES;
+        self.plainImagePreviewView.hidden = NO;
+        
+        self.plainImagePreviewView.image = [[NSImage alloc] initWithContentsOfFile:[command path]];
+    }
 }
 
 - (IBAction)tappedCurrentDiff:(id)sender
 {
     [self.currentCommand launch];
+}
+
+- (NSView *)tableView:(NSTableView *)tableView viewForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row
+{
+    return [self.tableDataSource tableView:tableView viewForTableColumn:tableColumn row:row];
+}
+
+- (BOOL)tableView:(NSTableView *)tableView isGroupRow:(NSInteger)row
+{
+    return [self.tableDataSource tableView:tableView isGroupRow:row];
+}
+
+- (CGFloat)tableView:(NSTableView *)tableView heightOfRow:(NSInteger)row
+{
+    return [self.tableDataSource tableView:tableView heightOfRow:row];
 }
 
 

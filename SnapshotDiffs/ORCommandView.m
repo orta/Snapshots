@@ -12,9 +12,6 @@
 
 @implementation ORCommandView
 
-// YOLOViewOkay
-
-
 - (void)prepareWithCommand:(ORKaleidoscopeCommand *)command
 {    
     NSImage *before = [[NSImage alloc] initWithContentsOfFile:command.beforePath];

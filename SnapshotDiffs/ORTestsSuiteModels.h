@@ -13,7 +13,9 @@
 @interface ORTestSuite : NSObject
 @property (nonatomic, copy) NSString *name;
 @property (nonatomic, strong) NSMutableArray *testCases;
-@property (nonatomic, assign) BOOL hasFailingTests;
+
+- (BOOL)hasFailingTests;
+- (BOOL)hasNewSnapshots;
 
 + (ORTestSuite *)suiteFromString:(NSString *)line;
 - (ORTestCase *)latestTestCase;
@@ -24,6 +26,7 @@
 @property (nonatomic, copy) NSString *name;
 @property (nonatomic, strong) NSMutableArray *commands;
 @property (nonatomic, strong) NSMutableArray *snapshots;
+- (NSArray *)uniqueDiffCommands;
 
 @property (nonatomic, assign) BOOL hasFailingTests;
 

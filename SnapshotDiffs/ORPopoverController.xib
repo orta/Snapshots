@@ -12,6 +12,7 @@
                 <outlet property="mainView" destination="8IX-oz-5Bw" id="qs8-7p-Axt"/>
                 <outlet property="openAllButton" destination="cUR-qy-SrZ" id="lLa-RY-bLI"/>
                 <outlet property="openCurrentButton" destination="iFe-cf-Mh8" id="AL4-NS-FGu"/>
+                <outlet property="plainImagePreviewView" destination="auu-Gh-2MY" id="yDf-1f-F1n"/>
                 <outlet property="testTableView" destination="Wxm-sI-xiw" id="NKz-Sz-eYC"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
             </connections>
@@ -59,16 +60,49 @@
                                                 </textFieldCell>
                                                 <tableColumnResizingMask key="resizingMask" resizeWithTable="YES"/>
                                                 <prototypeCellViews>
+                                                    <tableCellView identifier="title" id="cza-EN-KmO" customClass="ORTestCaseTitleView">
+                                                        <rect key="frame" x="1" y="1" width="247" height="28"/>
+                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                        <subviews>
+                                                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" id="kfD-OP-S5v">
+                                                                <rect key="frame" x="20" y="-3" width="247" height="28"/>
+                                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                                                <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Hello There" id="Drb-GH-ZS2">
+                                                                    <font key="font" metaFont="system"/>
+                                                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                                </textFieldCell>
+                                                            </textField>
+                                                        </subviews>
+                                                        <connections>
+                                                            <outlet property="label" destination="kfD-OP-S5v" id="0OP-Bc-V3v"/>
+                                                            <outlet property="textField" destination="kfD-OP-S5v" id="OVT-tb-dPf"/>
+                                                        </connections>
+                                                    </tableCellView>
+                                                    <tableCellView identifier="new_snapshot" id="BkE-cB-K6K" customClass="ORNewSnapshotView">
+                                                        <rect key="frame" x="1" y="31" width="247" height="180"/>
+                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                        <subviews>
+                                                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" id="TMI-3X-Hcm">
+                                                                <rect key="frame" x="20" y="20" width="100" height="140"/>
+                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" imageFrameStyle="photo" id="HIL-Sn-keT"/>
+                                                            </imageView>
+                                                        </subviews>
+                                                        <connections>
+                                                            <outlet property="imageView" destination="TMI-3X-Hcm" id="AzA-gY-Fyz"/>
+                                                        </connections>
+                                                    </tableCellView>
                                                     <tableCellView identifier="command" wantsLayer="YES" id="aAr-Z3-eum" customClass="ORCommandView">
-                                                        <rect key="frame" x="1" y="1" width="247" height="166"/>
+                                                        <rect key="frame" x="1" y="213" width="247" height="166"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                         <subviews>
                                                             <imageView wantsLayer="YES" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="bxa-U6-Ob3">
-                                                                <rect key="frame" x="20" y="10" width="100" height="140"/>
+                                                                <rect key="frame" x="130" y="10" width="100" height="140"/>
                                                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" imageFrameStyle="photo" id="K1d-ZH-0wR"/>
                                                             </imageView>
                                                             <imageView wantsLayer="YES" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="5qu-3k-TRe">
-                                                                <rect key="frame" x="130" y="10" width="100" height="140"/>
+                                                                <rect key="frame" x="20" y="10" width="100" height="140"/>
                                                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" imageFrameStyle="photo" id="oTl-UX-vRg"/>
                                                             </imageView>
                                                         </subviews>
@@ -112,14 +146,6 @@
                 <customView id="1qD-Mb-X88" userLabel="Detail View">
                     <rect key="frame" x="255" y="0.0" width="320" height="480"/>
                     <subviews>
-                        <customView id="L38-lV-VNd">
-                            <rect key="frame" x="0.0" y="41" width="320" height="440"/>
-                            <subviews>
-                                <customView id="vTy-JQ-RFh" customClass="ORSlidingImageView">
-                                    <rect key="frame" x="20" y="20" width="280" height="400"/>
-                                </customView>
-                            </subviews>
-                        </customView>
                         <button id="iFe-cf-Mh8">
                             <rect key="frame" x="238" y="16" width="62" height="17"/>
                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
@@ -131,6 +157,15 @@
                                 <action selector="tappedCurrentDiff:" target="-2" id="ETz-cR-UOT"/>
                             </connections>
                         </button>
+                        <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" id="auu-Gh-2MY">
+                            <rect key="frame" x="23" y="57" width="277" height="400"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="qPf-nF-UtB"/>
+                        </imageView>
+                        <customView id="vTy-JQ-RFh" customClass="ORSlidingImageView">
+                            <rect key="frame" x="20" y="57" width="280" height="400"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        </customView>
                     </subviews>
                 </customView>
             </subviews>

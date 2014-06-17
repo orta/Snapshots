@@ -12,10 +12,6 @@
 #import "JGMethodSwizzler.h"
 #import "ORPopoverController.h"
 
-// Add support for:
-// 2014-06-16 11:34:57.579 ArtsyFolio[45418:60b] /Users/orta/dev/ios/energy/ArtsyFolio Tests/ARAdminPartnerSelectViewControllerTests.m:40 snapshot looks_right_on_phone successfully recorded, replace recordSnapshot with a check
-
-
 static ORSnapshotDiffs *sharedPlugin;
 
 @interface ORSnapshotDiffs()
@@ -41,7 +37,7 @@ static ORSnapshotDiffs *sharedPlugin;
             dispatch_once(&onceToken, ^{
                 Class class = NSClassFromString(@"IDEToolbarDelegate");
                 
-                // This is nice but really we need to try and move away from using a 3rd party dep
+                // This is nice but really I need to try and move away from using a 3rd party dep
                 
                 [class swizzleInstanceMethod:@selector(toolbar:itemForItemIdentifier:willBeInsertedIntoToolbar:) withReplacement:JGMethodReplacementProviderBlock {
                     return JGMethodReplacement(NSToolbarItem *, id, NSToolbar *toolbar, NSString *identifier, BOOL inserted) {
@@ -103,7 +99,7 @@ static ORSnapshotDiffs *sharedPlugin;
 
 - (void)tappedButton:(NSButton *)button
 {
-    if (self.reader.hasSnapshotTestErrors) {
+//    if (self.reader.hasSnapshotTestErrors || self.reader.hasNewSnapshots) {
         NSPopover *popover = [[NSPopover alloc] init];
         popover.contentSize = CGSizeMake(575, 480);
         NSString *class = NSStringFromClass(ORPopoverController.class);
@@ -114,7 +110,7 @@ static ORSnapshotDiffs *sharedPlugin;
         popover.behavior = NSPopoverBehaviorTransient;
         
         [popover showRelativeToRect:button.bounds ofView:button preferredEdge:NSMaxYEdge];
-    }
+//    }
 }
 
 - (id)initWithBundle:(NSBundle *)plugin
@@ -176,7 +172,6 @@ static ORSnapshotDiffs *sharedPlugin;
         [button setAlphaValue:0.5];
     }
 }
-
 
 - (void)resetLog:(NSNotification *)notification
 {

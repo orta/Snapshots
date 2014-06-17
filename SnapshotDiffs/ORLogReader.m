@@ -39,6 +39,12 @@
     return self;
 }
 
+- (NSArray *)testSuites
+{
+    return self.mutableTestSuites.array;
+}
+
+
 - (ORTestSuite *)latestTestSuite
 {
     return self.mutableTestSuites.lastObject;
@@ -80,7 +86,9 @@
             ORSnapshotCreationReference *snapshot = [ORSnapshotCreationReference referenceFromString:line];
             if (snapshot) {
                 ORTestCase *testCase = self.latestTestSuite.latestTestCase;
-                snapshot.path = [[NSFileManager defaultManager] or_findFileWithNamePrefix:snapshot.name inFolder:self.latestTestSuite.name];
+                NSString *path = [[NSFileManager defaultManager] or_findFileWithNamePrefix:snapshot.name inFolder:self.latestTestSuite.name];
+                
+                snapshot.path = [path stringByReplacingOccurrencesOfString:@"file:/" withString:@""];
                 
                 if (![self.mutableSnapshotCreations containsObject:snapshot]) {
                     [self.mutableSnapshotCreations addObject:snapshot];

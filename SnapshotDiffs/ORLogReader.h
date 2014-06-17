@@ -15,6 +15,8 @@
 - (NSArray *)ksdiffCommands;
 - (NSString *)log;
 
+- (NSArray *)testSuites;
+
 - (BOOL)hasNewSnapshots;
 - (BOOL)hasSnapshotTestErrors;
 - (void)erase;
