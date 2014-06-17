@@ -19,5 +19,6 @@
 - (NSView *)tableView:(NSTableView *)tableView viewForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row;
 - (BOOL)tableView:(NSTableView *)tableView isGroupRow:(NSInteger)row;
 - (CGFloat)tableView:(NSTableView *)tableView heightOfRow:(NSInteger)row;
+- (BOOL)tableView:(NSTableView *)tableView shouldSelectRow:(NSInteger)row;
 
 @end

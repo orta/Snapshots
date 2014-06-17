@@ -84,6 +84,7 @@
         
         self.currentCommand = command;
     }
+    
     if ([command isKindOfClass:ORSnapshotCreationReference.class]) {
         self.detailSlidingView.hidden = YES;
         self.plainImagePreviewView.hidden = NO;
@@ -112,6 +113,10 @@
     return [self.tableDataSource tableView:tableView heightOfRow:row];
 }
 
+- (BOOL)tableView:(NSTableView *)tableView shouldSelectRow:(NSInteger)row;
+{
+    return [self.tableDataSource tableView:tableView shouldSelectRow:row];
+}
 
 // Other wise mainView goes out of scope on transitions
 

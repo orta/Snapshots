@@ -96,4 +96,10 @@
     return [command isKindOfClass:NSString.class] ? 24 : 180;
 }
 
+- (BOOL)tableView:(NSTableView *)tableView shouldSelectRow:(NSInteger)row;
+{
+    id command = [self objectForRow:row];
+    return ![command isKindOfClass:NSString.class];
+}
+
 @end
