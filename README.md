@@ -2,7 +2,7 @@
 
 ### An Xcode Plugin to show the state of FBSnapshot Tests.
 
-I think Facebook have [view testing](https://github.com/facebook/ios-snapshot-test-case) right. I don't think Xcode's quite there yet, so I built a plugin to fix this. 
+I think Facebook have [view testing](https://github.com/facebook/ios-snapshot-test-case) right. I don't think Xcode's quite there yet, so I built a plugin to fix this.
 
 ![Screenshot](https://raw.githubusercontent.com/orta/Snapshots/master/web/screenshot.jpg)
 
@@ -14,7 +14,7 @@ I think Facebook have [view testing](https://github.com/facebook/ios-snapshot-te
 
 #### Installation
 
-Go look on Alcatraz for "Snapshots", or clone this repo and hit build then restart Xcode. Alcatraz is better, you get updates with no effort.
+Install [Alcatraz](http://alcatraz.io/). In XCode choose Window, Package Manager and search for "Snapshots". Alternatively, clone this repo and hit build, then restart Xcode. Alcatraz is better, you get updates with no effort.
 
 #### Contributing
 
@@ -22,6 +22,6 @@ It's actually _way_ easier to work on Plugins than you think. Hitting run in Xco
 
 #### Unknowns
 
-Currently this only works if you're using XCTests or Expecta. Kiwi has it's own test runner, and I've been focusing on what I use personally. 
+Currently this only works if you're using XCTests or Expecta. Kiwi has it's own test runner, and I've been focusing on what I use personally.
 
 If you're using Expecta I really recommend my buddy dB's extension for Expecta: [EXPMatchers+FBSnapshotTest](https://github.com/dblock/ios-snapshot-test-case-expecta). It automates the whole setup process + adds nice language around tests.
