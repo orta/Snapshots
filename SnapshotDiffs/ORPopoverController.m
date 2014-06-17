@@ -110,6 +110,16 @@
     [self.currentCommand launch];
 }
 
+- (id)tableView:(NSTableView *)tableView objectValueForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row
+{
+    return [self.tableDataSource objectForRow:row];
+}
+
+- (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView
+{
+    return [self.tableDataSource numberOfRowsInTableView:tableView];
+}
+
 - (NSView *)tableView:(NSTableView *)tableView viewForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row
 {
     return [self.tableDataSource tableView:tableView viewForTableColumn:tableColumn row:row];
