@@ -10,7 +10,7 @@ I think Facebook have [view testing](https://github.com/facebook/ios-snapshot-te
 
 * Showing new images as they're created
 * Showing the differences between failed snapshot tests
-* Open specific or all diffs in Xcode
+* Open specific or all diffs in Kaleidoscope
 
 #### Installation
 
