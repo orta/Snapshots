@@ -87,9 +87,9 @@
             if (snapshot) {
                 ORTestCase *testCase = self.latestTestSuite.latestTestCase;
                 NSString *path = [[NSFileManager defaultManager] or_findFileWithNamePrefix:snapshot.name inFolder:self.latestTestSuite.name];
-                
-                snapshot.path = [path stringByReplacingOccurrencesOfString:@"file:/" withString:@""];
-                
+                path = [path stringByReplacingOccurrencesOfString:@"file://" withString:@""];
+                snapshot.path = [path stringByReplacingOccurrencesOfString:@"%20" withString:@" "];
+
                 if (![self.mutableSnapshotCreations containsObject:snapshot]) {
                     [self.mutableSnapshotCreations addObject:snapshot];
                     [testCase addSnapshot:snapshot];

@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "605A022D194A34A500920397"
-               BuildableName = "SnapshotDiffs.xcplugin"
-               BlueprintName = "SnapshotDiffs"
-               ReferencedContainer = "container:SnapshotDiffs.xcodeproj">
+               BuildableName = "Snapshots.xcplugin"
+               BlueprintName = "Snapshots"
+               ReferencedContainer = "container:Snapshots.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

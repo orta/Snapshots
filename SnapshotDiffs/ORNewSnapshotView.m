@@ -8,11 +8,13 @@
 
 #import "ORNewSnapshotView.h"
 #import "ORTestsSuiteModels.h"
+
 @implementation ORNewSnapshotView
 
 - (void)prepareWithCommand:(ORSnapshotCreationReference *)command
 {
-    self.imageView.image = [[NSImage alloc] initWithContentsOfFile:command.path];
+    NSImage *image = [[NSImage alloc] initWithContentsOfFile:command.path];
+    self.imageView.image = image;
 }
 
 @end

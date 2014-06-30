@@ -61,7 +61,7 @@
 		6020BD86194E3F7B0027B265 /* ORSlidingImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORSlidingImageView.h; sourceTree = "<group>"; };
 		6020BD87194E3F7B0027B265 /* ORSlidingImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORSlidingImageView.m; sourceTree = "<group>"; };
 		6020BD89194E50DE0027B265 /* SeparatorImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SeparatorImage.png; sourceTree = "<group>"; };
-		605A022E194A34A500920397 /* SnapshotDiffs.xcplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SnapshotDiffs.xcplugin; sourceTree = BUILT_PRODUCTS_DIR; };
+		605A022E194A34A500920397 /* Snapshots.xcplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Snapshots.xcplugin; sourceTree = BUILT_PRODUCTS_DIR; };
 		605A0231194A34A500920397 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		605A0233194A34A500920397 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		605A0237194A34A500920397 /* SnapshotDiffs-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SnapshotDiffs-Info.plist"; sourceTree = "<group>"; };
@@ -157,7 +157,7 @@
 		605A022F194A34A500920397 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				605A022E194A34A500920397 /* SnapshotDiffs.xcplugin */,
+				605A022E194A34A500920397 /* Snapshots.xcplugin */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -246,7 +246,7 @@
 			);
 			name = Snapshots;
 			productName = SnapshotDiffs;
-			productReference = 605A022E194A34A500920397 /* SnapshotDiffs.xcplugin */;
+			productReference = 605A022E194A34A500920397 /* Snapshots.xcplugin */;
 			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
