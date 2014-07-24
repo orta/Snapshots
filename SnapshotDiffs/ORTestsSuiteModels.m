@@ -8,6 +8,7 @@
 
 #import "ORTestsSuiteModels.h"
 #import "NSFileManager+RecursiveFind.h"
+#import "ORKaleidoscopeController.h"
 
 @implementation ORTestSuite
 
@@ -147,8 +148,11 @@
 - (void)launch
 {
     NSTask *task = [[NSTask alloc] init];
-    [task setLaunchPath: @"/usr/local/bin/ksdiff"];
-
+    if ([ORKaleidoscopeController isInstalled]) {
+        [task setLaunchPath: @"/usr/local/bin/ksdiff"];
+    }else{
+        [task setLaunchPath: @"/usr/bin/open"];
+    }
     NSArray *arguments = @[ self.beforePath, self.afterPath];
     [task setArguments: arguments];
     [task launch];
