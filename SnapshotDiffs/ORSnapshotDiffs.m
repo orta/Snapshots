@@ -31,10 +31,9 @@ static ORSnapshotDiffs *sharedPlugin;
     if ([currentApplicationName isEqual:@"Xcode"]) {
         dispatch_once(&onceToken, ^{
             sharedPlugin = [[self alloc] initWithBundle:plugin];
-            
-        
-            static dispatch_once_t onceToken;
-            dispatch_once(&onceToken, ^{
+
+            static dispatch_once_t secondOnceToken;
+            dispatch_once(&secondOnceToken, ^{
                 Class class = NSClassFromString(@"IDEToolbarDelegate");
                 
                 // This is nice but really I need to try and move away from using a 3rd party dep
@@ -149,9 +148,8 @@ static ORSnapshotDiffs *sharedPlugin;
 
 - (void)updateToolbarIcon:(NSNotification *)notification
 {
-    NSBundle *bundle = [NSBundle bundleForClass:ORSnapshotDiffs.class];
     NSString *imagePath = self.reader.hasSnapshotTestErrors ? @"SnapshotToolbarIconActive" : @"SnapshotToolbarIcon";
-    NSImage *image = [bundle imageForResource:imagePath];
+    NSImage *image = [self.bundle imageForResource:imagePath];
     
     for (NSButton *button in self.buttons) {
         button.image = image;

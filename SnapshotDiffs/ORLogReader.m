@@ -84,6 +84,7 @@
 
         if ([line rangeOfString:@"successfully recorded"].location != NSNotFound) {
             ORSnapshotCreationReference *snapshot = [ORSnapshotCreationReference referenceFromString:line];
+
             if (snapshot) {
                 ORTestCase *testCase = self.latestTestSuite.latestTestCase;
                 NSString *path = [[NSFileManager defaultManager] or_findFileWithNamePrefix:snapshot.name inFolder:self.latestTestSuite.name];

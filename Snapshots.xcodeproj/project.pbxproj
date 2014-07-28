@@ -121,6 +121,8 @@
 		6018B70C194DE662001981D7 /* Visuals */ = {
 			isa = PBXGroup;
 			children = (
+				60B572B0194E6D2D002B9A46 /* NSColor+ORSnapshotColours.h */,
+				60B572B1194E6D2D002B9A46 /* NSColor+ORSnapshotColours.m */,
 				6085FA9B195004CF00A71FD3 /* TableView Highlight */,
 				6020BD86194E3F7B0027B265 /* ORSlidingImageView.h */,
 				6020BD87194E3F7B0027B265 /* ORSlidingImageView.m */,
@@ -181,8 +183,6 @@
 				6018B70B194DE654001981D7 /* Controllers */,
 				6018B70A194DE648001981D7 /* Externs */,
 				605A0236194A34A500920397 /* Supporting Files */,
-				60B572B0194E6D2D002B9A46 /* NSColor+ORSnapshotColours.h */,
-				60B572B1194E6D2D002B9A46 /* NSColor+ORSnapshotColours.m */,
 			);
 			path = SnapshotDiffs;
 			sourceTree = "<group>";

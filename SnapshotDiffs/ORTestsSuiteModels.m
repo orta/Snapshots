@@ -163,13 +163,15 @@
 {
     // 2014-06-16 11:34:57.579 ArtsyFolio[45418:60b] /Users/orta/dev/ios/energy/ArtsyFolio Tests/ARAdminPartnerSelectViewControllerTests.m:40 snapshot looks_right_on_phone successfully recorded, replace recordSnapshot with a check
     
+    // 2014-07-28 14:17:39.979 FolioDev[15613:607] /Users/orta/spiel/ios/energy/ArtsyFolio Tests/ARExpectaExtensions.m:18 snapshot default state as ipad dark successfully recorded, replace recordSnapshot with a check
+    
     NSArray *components = [line componentsSeparatedByString:@"snapshot "];
     NSArray *endComponents = [line componentsSeparatedByString:@" successfully recorded, replace recordSnapshot with a check"];
     
     if (components.count == 2 && endComponents.count == 2) {
 
         ORSnapshotCreationReference *obj = [[self alloc] init];
-        obj.name = [[endComponents.firstObject componentsSeparatedByString:@"snapshot"].lastObject stringByReplacingOccurrencesOfString:@" " withString:@""];
+        obj.name = [endComponents.firstObject componentsSeparatedByString:@"snapshot "].lastObject;
         return obj;
     }
     return nil;
