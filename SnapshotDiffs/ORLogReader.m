@@ -67,9 +67,13 @@
         }
         
         if ([line rangeOfString:@"Test Case"].location != NSNotFound) {
-            ORTestCase *testCase = [ORTestCase caseFromString:line];
-            if (testCase){
-                [self.latestTestSuite.testCases addObject:testCase];
+            if ([line rangeOfString:@"started."].location != NSNotFound) {
+                ORTestCase *testCase = [ORTestCase caseFromString:line];
+                if (testCase){
+                    [self.latestTestSuite.testCases addObject:testCase];
+                }
+            } else if ([line rangeOfString:@"' failed ("].location != NSNotFound) {
+                [self.mutableDiffCommands.lastObject setFails:YES];
             }
         }
         
@@ -118,7 +122,9 @@
 
 - (NSArray *)ksdiffCommands
 {
-    return self.mutableDiffCommands.array.copy;
+    return [self.mutableDiffCommands.array filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(ORKaleidoscopeCommand *command, NSDictionary *bindings) {
+        return command.fails;
+    }]];
 }
 
 - (NSArray *)uniqueDiffCommands
