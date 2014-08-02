@@ -32,19 +32,21 @@
     return self.testCases.lastObject;
 }
 
+- (NSArray *)failingTestCases
+{
+    return [self.testCases filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(ORTestCase *testCase, NSDictionary *bindings) {
+        return testCase.hasFailingTests;
+    }]];
+}
+
 - (BOOL)hasFailingTests
 {
-    for (ORTestCase *testCase in self.testCases) {
-        if (testCase.hasFailingTests) {
-            return YES;
-        }
-    }
-    return NO;
+    return self.failingTestCases.count > 0;
 }
 
 - (BOOL)hasNewSnapshots
 {
-    for (ORTestCase *testCase in self.testCases) {
+    for (ORTestCase *testCase in self.failingTestCases) {
         if (testCase.snapshots.count > 0) {
             return YES;
         }
@@ -105,6 +107,11 @@
     snapshot.testCase = self;
 }
 
+- (ORKaleidoscopeCommand *)latestCommand
+{
+    return self.commands.lastObject;
+}
+
 - (BOOL)hasFailingTests
 {
     return self.uniqueDiffCommands.count > 0;
@@ -112,7 +119,9 @@
 
 - (NSArray *)uniqueDiffCommands
 {
-    return [NSOrderedSet orderedSetWithArray: [self.commands filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(ORKaleidoscopeCommand *command, NSDictionary *bindings) {
+    return [NSOrderedSet orderedSetWithArray: [[self.commands filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(ORKaleidoscopeCommand *command, NSDictionary *bindings) {
+        return command.fails;
+    }]] filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(ORKaleidoscopeCommand *command, NSDictionary *bindings) {
         return [[NSFileManager defaultManager] contentsEqualAtPath:command.afterPath andPath:command.beforePath] == NO;
     }]]].array;
 }
@@ -137,7 +146,7 @@
 
 - (BOOL)isEqual:(ORKaleidoscopeCommand *)anObject
 {
-    return [self.beforePath isEqual:anObject.beforePath] && [self.afterPath isEqual:anObject.afterPath];
+    return [self.beforePath isEqual:anObject.beforePath] && [self.afterPath isEqual:anObject.afterPath] && self.fails == anObject.fails;
 }
 
 - (NSUInteger)hash
