@@ -84,6 +84,10 @@
             }
         }
         
+        if ([line rangeOfString:@"This application, or a library it uses, is using an invalid context"].location != NSNotFound) {
+            _hasCGErrors = YES;
+        }
+        
         if ([line rangeOfString:@"]"].location != NSNotFound && [line rangeOfString:@"expected a matching snapshot"].location != NSNotFound) {
             NSString *filepathAndLine = [line or_substringBetween:@"] " and:@" expected a matching snapshot"];
             if (filepathAndLine && filepathAndLine.length > 1) {
@@ -150,6 +154,7 @@
     _mutableDiffCommands = [NSMutableOrderedSet orderedSet];
     _mutableTestSuites = [NSMutableOrderedSet orderedSet];
     _mutableSnapshotCreations = [NSMutableOrderedSet orderedSet];
+    _hasCGErrors = NO;
 }
 
 - (void)dealloc

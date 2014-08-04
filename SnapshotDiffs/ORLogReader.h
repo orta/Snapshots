@@ -18,6 +18,8 @@
 - (NSArray *)testSuites;
 
 - (BOOL)hasNewSnapshots;
+@property (readonly, nonatomic, assign) BOOL hasCGErrors;
+
 - (BOOL)hasSnapshotTestErrors;
 - (void)erase;
 

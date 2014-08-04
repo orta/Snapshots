@@ -35,6 +35,7 @@
 		60B22BD7194A39A700D72E46 /* ORLogReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 60B22BD6194A39A700D72E46 /* ORLogReader.m */; };
 		60B572B2194E6D2D002B9A46 /* NSColor+ORSnapshotColours.m in Sources */ = {isa = PBXBuildFile; fileRef = 60B572B1194E6D2D002B9A46 /* NSColor+ORSnapshotColours.m */; };
 		60D4D716198F0C99001AB8AF /* NSString+StringBetweenStrings.m in Sources */ = {isa = PBXBuildFile; fileRef = 60D4D715198F0C99001AB8AF /* NSString+StringBetweenStrings.m */; };
+		60D4D718198F1B6C001AB8AF /* SnapshotToolbarIconError.png in Resources */ = {isa = PBXBuildFile; fileRef = 60D4D717198F1B6C001AB8AF /* SnapshotToolbarIconError.png */; };
 		60F92FD0194FCABA00F78EBA /* NSFileManager+RecursiveFind.m in Sources */ = {isa = PBXBuildFile; fileRef = 60F92FCF194FCABA00F78EBA /* NSFileManager+RecursiveFind.m */; };
 /* End PBXBuildFile section */
 
@@ -84,6 +85,7 @@
 		60B572B1194E6D2D002B9A46 /* NSColor+ORSnapshotColours.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSColor+ORSnapshotColours.m"; sourceTree = "<group>"; };
 		60D4D714198F0C99001AB8AF /* NSString+StringBetweenStrings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+StringBetweenStrings.h"; sourceTree = "<group>"; };
 		60D4D715198F0C99001AB8AF /* NSString+StringBetweenStrings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+StringBetweenStrings.m"; sourceTree = "<group>"; };
+		60D4D717198F1B6C001AB8AF /* SnapshotToolbarIconError.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SnapshotToolbarIconError.png; sourceTree = "<group>"; };
 		60F92FCF194FCABA00F78EBA /* NSFileManager+RecursiveFind.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFileManager+RecursiveFind.m"; sourceTree = "<group>"; };
 		60F92FD1194FCB3200F78EBA /* NSFileManager+RecursiveFind.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSFileManager+RecursiveFind.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -203,6 +205,7 @@
 				6020BD72194E08210027B265 /* KaleidoscopeAllButtonActive.png */,
 				6020BD70194E061A0027B265 /* KaleidoscopeAllButton.png */,
 				6014D77A194B872400CB802D /* SnapshotToolbarIconActive.png */,
+				60D4D717198F1B6C001AB8AF /* SnapshotToolbarIconError.png */,
 				6014D77B194B872400CB802D /* SnapshotToolbarIcon.png */,
 				605A0237194A34A500920397 /* SnapshotDiffs-Info.plist */,
 				605A0238194A34A500920397 /* InfoPlist.strings */,
@@ -294,6 +297,7 @@
 				6014D77D194B872400CB802D /* SnapshotToolbarIcon.png in Resources */,
 				6020BD77194E09470027B265 /* ViewDiffImage.png in Resources */,
 				6018B70F194DEFB4001981D7 /* OutputExamples in Resources */,
+				60D4D718198F1B6C001AB8AF /* SnapshotToolbarIconError.png in Resources */,
 				6020BD76194E09470027B265 /* ViewDiffImageActive.png in Resources */,
 				6020BD8A194E50DE0027B265 /* SeparatorImage.png in Resources */,
 				605A023A194A34A500920397 /* InfoPlist.strings in Resources */,
