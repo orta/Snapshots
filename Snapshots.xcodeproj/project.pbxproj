@@ -34,6 +34,7 @@
 		6085FA9E1950050100A71FD3 /* ORTableViewRowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6085FA9D1950050100A71FD3 /* ORTableViewRowView.m */; };
 		60B22BD7194A39A700D72E46 /* ORLogReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 60B22BD6194A39A700D72E46 /* ORLogReader.m */; };
 		60B572B2194E6D2D002B9A46 /* NSColor+ORSnapshotColours.m in Sources */ = {isa = PBXBuildFile; fileRef = 60B572B1194E6D2D002B9A46 /* NSColor+ORSnapshotColours.m */; };
+		60D4D716198F0C99001AB8AF /* NSString+StringBetweenStrings.m in Sources */ = {isa = PBXBuildFile; fileRef = 60D4D715198F0C99001AB8AF /* NSString+StringBetweenStrings.m */; };
 		60F92FD0194FCABA00F78EBA /* NSFileManager+RecursiveFind.m in Sources */ = {isa = PBXBuildFile; fileRef = 60F92FCF194FCABA00F78EBA /* NSFileManager+RecursiveFind.m */; };
 /* End PBXBuildFile section */
 
@@ -81,6 +82,8 @@
 		60B22BD6194A39A700D72E46 /* ORLogReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORLogReader.m; sourceTree = "<group>"; };
 		60B572B0194E6D2D002B9A46 /* NSColor+ORSnapshotColours.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSColor+ORSnapshotColours.h"; sourceTree = "<group>"; };
 		60B572B1194E6D2D002B9A46 /* NSColor+ORSnapshotColours.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSColor+ORSnapshotColours.m"; sourceTree = "<group>"; };
+		60D4D714198F0C99001AB8AF /* NSString+StringBetweenStrings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+StringBetweenStrings.h"; sourceTree = "<group>"; };
+		60D4D715198F0C99001AB8AF /* NSString+StringBetweenStrings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+StringBetweenStrings.m"; sourceTree = "<group>"; };
 		60F92FCF194FCABA00F78EBA /* NSFileManager+RecursiveFind.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFileManager+RecursiveFind.m"; sourceTree = "<group>"; };
 		60F92FD1194FCB3200F78EBA /* NSFileManager+RecursiveFind.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSFileManager+RecursiveFind.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -101,6 +104,8 @@
 		6018B70A194DE648001981D7 /* Externs */ = {
 			isa = PBXGroup;
 			children = (
+				60D4D714198F0C99001AB8AF /* NSString+StringBetweenStrings.h */,
+				60D4D715198F0C99001AB8AF /* NSString+StringBetweenStrings.m */,
 				6014D777194B5D2900CB802D /* JGMethodSwizzler.h */,
 				6014D778194B5D2900CB802D /* JGMethodSwizzler.m */,
 			);
@@ -305,6 +310,7 @@
 			files = (
 				6085FA9E1950050100A71FD3 /* ORTableViewRowView.m in Sources */,
 				6020BD88194E3F7B0027B265 /* ORSlidingImageView.m in Sources */,
+				60D4D716198F0C99001AB8AF /* NSString+StringBetweenStrings.m in Sources */,
 				6014D781194B949F00CB802D /* ORPopoverController.m in Sources */,
 				60B22BD7194A39A700D72E46 /* ORLogReader.m in Sources */,
 				6085FA93194FF03B00A71FD3 /* ORPopoverTableDataSource.m in Sources */,

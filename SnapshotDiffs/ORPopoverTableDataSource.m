@@ -66,9 +66,11 @@
     }
 
     if ([command isKindOfClass:NSString.class]) {
-        ORTestCaseTitleView *textField = [tableView makeViewWithIdentifier:@"title" owner:self];
-        textField.label.stringValue = command;
-        view = textField;
+        ORTestCaseTitleView *titleFieldView = [tableView makeViewWithIdentifier:@"title" owner:self];
+        [titleFieldView.titleButton setTitle: [@" " stringByAppendingString:command]];
+        [titleFieldView.titleButton setAction:@selector(testTitleViewClicked:)];
+        titleFieldView.titleButton.tag = row;
+        view = titleFieldView;
     }
     
     return view;

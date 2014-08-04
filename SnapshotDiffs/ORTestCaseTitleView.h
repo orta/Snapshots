@@ -10,6 +10,6 @@
 
 @interface ORTestCaseTitleView : NSTableCellView
 
-@property (nonatomic, weak) IBOutlet NSTextField *label;
+@property (nonatomic, weak) IBOutlet NSButton *titleButton;
 
 @end

@@ -110,6 +110,13 @@
     [self.currentCommand launch];
 }
 
+- (void)testTitleViewClicked:(NSButton *)sender
+{
+    ORKaleidoscopeCommand *firstCommandInTestCase = [self.tableDataSource objectForRow:sender.tag + 1];
+    NSString *filePath = [firstCommandInTestCase.projectLocation componentsSeparatedByString:@":"].firstObject;
+    [[NSApplication sharedApplication].delegate application:NSApp openFile:filePath];
+}
+
 - (id)tableView:(NSTableView *)tableView objectValueForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row
 {
     return [self.tableDataSource objectForRow:row];
@@ -146,8 +153,6 @@
     }
     return should;
 }
-
-
 
 // Other wise mainView goes out of scope on transitions
 

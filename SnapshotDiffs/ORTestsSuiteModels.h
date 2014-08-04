@@ -46,6 +46,8 @@
 @property (nonatomic, copy) NSString *afterPath;
 @property (nonatomic, copy) NSString *fullCommand;
 @property (nonatomic, weak) ORTestCase *testCase;
+@property (nonatomic, copy) NSString *projectLocation;
+
 
 + (instancetype)commandFromString:(NSString *)command;
 @end
