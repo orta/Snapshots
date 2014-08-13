@@ -91,6 +91,10 @@
         
         self.detailSlidingView.frontImage = [[NSImage alloc] initWithContentsOfFile:[command beforePath]];
         self.detailSlidingView.backImage = [[NSImage alloc] initWithContentsOfFile:[command afterPath]];
+        
+        self.detailSlidingView.frontMessage = @"Reference";
+        self.detailSlidingView.backMessage = @"Recorded";
+        
         self.detailTestDescription.stringValue = [command testCase].name;
         self.currentCommand = command;
     }
