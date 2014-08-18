@@ -27,6 +27,7 @@
 @property (nonatomic, copy) NSString *name;
 @property (nonatomic, strong) NSMutableArray *commands;
 @property (nonatomic, strong) NSMutableArray *snapshots;
+
 - (NSArray *)uniqueDiffCommands;
 
 @property (nonatomic, assign) BOOL hasFailingTests;
@@ -39,7 +40,9 @@
 
 
 @interface ORKaleidoscopeCommand : NSObject
+
 - (void)launch;
+- (void)swapImages;
 
 @property (nonatomic, assign) BOOL fails;
 @property (nonatomic, copy) NSString *beforePath;

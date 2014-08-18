@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="5056" systemVersion="14A298i" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="5056" systemVersion="14A329f" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="5056"/>
     </dependencies>
@@ -12,7 +12,6 @@
                 <outlet property="failingTestsTitle" destination="2au-A8-Rb4" id="gGL-Ps-eOz"/>
                 <outlet property="mainView" destination="8IX-oz-5Bw" id="qs8-7p-Axt"/>
                 <outlet property="openAllButton" destination="cUR-qy-SrZ" id="lLa-RY-bLI"/>
-                <outlet property="openCurrentButton" destination="iFe-cf-Mh8" id="AL4-NS-FGu"/>
                 <outlet property="plainImagePreviewView" destination="auu-Gh-2MY" id="yDf-1f-F1n"/>
                 <outlet property="testTableView" destination="Wxm-sI-xiw" id="NKz-Sz-eYC"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
@@ -154,17 +153,6 @@
                 <customView id="1qD-Mb-X88" userLabel="Detail View">
                     <rect key="frame" x="255" y="0.0" width="320" height="480"/>
                     <subviews>
-                        <button id="iFe-cf-Mh8">
-                            <rect key="frame" x="238" y="16" width="62" height="17"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
-                            <buttonCell key="cell" type="bevel" bezelStyle="regularSquare" image="ViewDiffImage" imagePosition="overlaps" alignment="center" alternateImage="ViewDiffImageActive" imageScaling="proportionallyDown" inset="2" id="C50-aq-MfB">
-                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                <font key="font" metaFont="system" size="10"/>
-                            </buttonCell>
-                            <connections>
-                                <action selector="tappedCurrentDiff:" target="-2" id="ETz-cR-UOT"/>
-                            </connections>
-                        </button>
                         <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" id="auu-Gh-2MY">
                             <rect key="frame" x="23" y="57" width="277" height="400"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -175,7 +163,7 @@
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         </customView>
                         <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" setsMaxLayoutWidthAtFirstLayout="YES" id="Ds5-1M-2kH">
-                            <rect key="frame" x="21" y="4" width="197" height="29"/>
+                            <rect key="frame" x="21" y="4" width="189" height="29"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Multiline Label this should be a mult line kinda bag" id="qi6-tp-gR4">
                                 <font key="font" metaFont="smallSystem"/>
@@ -183,6 +171,28 @@
                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                             </textFieldCell>
                         </textField>
+                        <button appearanceType="aqua" verticalHuggingPriority="750" id="UPJ-HU-AwR">
+                            <rect key="frame" x="268" y="12" width="32" height="17"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <buttonCell key="cell" type="inline" title="Diff" bezelStyle="inline" alignment="center" borderStyle="border" inset="2" id="jhf-mI-7w3">
+                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                <font key="font" metaFont="smallSystemBold"/>
+                            </buttonCell>
+                            <connections>
+                                <action selector="tappedCurrentDiff:" target="-2" id="bxv-R3-G07"/>
+                            </connections>
+                        </button>
+                        <button appearanceType="aqua" verticalHuggingPriority="750" id="HrI-oX-IPW">
+                            <rect key="frame" x="222" y="12" width="43" height="17"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <buttonCell key="cell" type="inline" title="Swap" bezelStyle="inline" alignment="center" borderStyle="border" inset="2" id="0yk-Nu-8zg">
+                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                <font key="font" metaFont="smallSystemBold"/>
+                            </buttonCell>
+                            <connections>
+                                <action selector="swapImages:" target="-2" id="KcI-eO-w94"/>
+                            </connections>
+                        </button>
                     </subviews>
                 </customView>
             </subviews>
@@ -192,7 +202,5 @@
         <image name="KaleidoscopeAllButton" width="108" height="46"/>
         <image name="KaleidoscopeAllButtonActive" width="108" height="46"/>
         <image name="NSShareTemplate" width="11" height="16"/>
-        <image name="ViewDiffImage" width="124" height="34"/>
-        <image name="ViewDiffImageActive" width="124" height="34"/>
     </resources>
 </document>

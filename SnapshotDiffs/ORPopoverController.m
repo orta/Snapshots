@@ -114,6 +114,12 @@
     [self.currentCommand launch];
 }
 
+- (IBAction)swapImages:(id)sender
+{
+    [self.currentCommand swapImages];
+    self.detailTestDescription.stringValue = @"Swapped Reference with Recorded image.";
+}
+
 - (void)testTitleViewClicked:(NSButton *)sender
 {
     ORKaleidoscopeCommand *firstCommandInTestCase = [self.tableDataSource objectForRow:sender.tag + 1];

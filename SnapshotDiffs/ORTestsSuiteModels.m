@@ -46,7 +46,7 @@
 
 - (BOOL)hasNewSnapshots
 {
-    for (ORTestCase *testCase in self.failingTestCases) {
+    for (ORTestCase *testCase in self.testCases) {
         if (testCase.snapshots.count > 0) {
             return YES;
         }
@@ -144,6 +144,16 @@
     return nil;
 }
 
+- (NSURL *)beforeURL
+{
+    return [NSURL fileURLWithPath:self.beforePath];
+}
+
+- (NSURL *)afterURL
+{
+    return [NSURL fileURLWithPath:self.afterPath];
+}
+
 - (BOOL)isEqual:(ORKaleidoscopeCommand *)anObject
 {
     return [self.beforePath isEqual:anObject.beforePath] && [self.afterPath isEqual:anObject.afterPath] && self.fails == anObject.fails;
@@ -165,6 +175,20 @@
     NSArray *arguments = @[ self.beforePath, self.afterPath];
     [task setArguments: arguments];
     [task launch];
+}
+
+- (void)swapImages
+{
+    NSError *error = nil;
+    [[NSFileManager defaultManager] removeItemAtURL:[self beforeURL] error:&error];
+    if (error) {
+        NSLog(@"Error deleting before %@", error);
+    }
+    
+    [[NSFileManager defaultManager] copyItemAtURL:[self afterURL] toURL:[self beforeURL] error:&error];
+    if (error) {
+        NSLog(@"Error moving before to after %@", error);
+    }
 }
 
 @end
