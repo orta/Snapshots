@@ -185,13 +185,22 @@
 - (void)swapImages
 {
     NSError *error = nil;
-    [[NSFileManager defaultManager] removeItemAtURL:[self beforeURL] error:&error];
-    if (error) {
+
+    NSArray *components = [self.beforeURL pathComponents];
+    NSString *name = [components.lastObject stringByReplacingOccurrencesOfString:@"reference_" withString:@""];
+    NSString *folder = components[components.count -2];
+
+    NSString *originalReference = [[NSFileManager defaultManager] or_findFileWithNamePrefix:name inFolder:folder];
+    originalReference = [originalReference stringByReplacingOccurrencesOfString:@"file://" withString:@""];
+    originalReference  = [originalReference stringByReplacingOccurrencesOfString:@"%20" withString:@" "];
+    NSURL *originalFileURL = [NSURL fileURLWithPath:originalReference];
+
+    if (![[NSFileManager defaultManager] removeItemAtURL:originalFileURL error:&error]) {
         NSLog(@"Error deleting before %@", error);
     }
     
-    [[NSFileManager defaultManager] copyItemAtURL:[self afterURL] toURL:[self beforeURL] error:&error];
-    if (error) {
+
+    if (![[NSFileManager defaultManager] copyItemAtURL:[self afterURL] toURL:originalFileURL error:&error]) {
         NSLog(@"Error moving before to after %@", error);
     }
 }
