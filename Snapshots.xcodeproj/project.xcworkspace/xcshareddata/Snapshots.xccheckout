@@ -12,20 +12,24 @@
 	<dict>
 		<key>750FAC30-3E22-4B3C-A024-B129AC7A13F5</key>
 		<string>https://github.com/orta/Snapshots.git</string>
+		<key>8FC017F60A23AF8D62BA01FDC8B1E7CAC167AE89</key>
+		<string>https://github.com/orta/Snapshots.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>Snapshots.xcodeproj/project.xcworkspace</string>
+	<string>Snapshots.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>750FAC30-3E22-4B3C-A024-B129AC7A13F5</key>
+		<string>../../../SnapshotDiffs</string>
+		<key>8FC017F60A23AF8D62BA01FDC8B1E7CAC167AE89</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/orta/Snapshots.git</string>
 	<key>IDESourceControlProjectVersion</key>
-	<integer>110</integer>
+	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>750FAC30-3E22-4B3C-A024-B129AC7A13F5</string>
+	<string>8FC017F60A23AF8D62BA01FDC8B1E7CAC167AE89</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
@@ -35,6 +39,14 @@
 			<string>750FAC30-3E22-4B3C-A024-B129AC7A13F5</string>
 			<key>IDESourceControlWCCName</key>
 			<string>SnapshotDiffs</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>8FC017F60A23AF8D62BA01FDC8B1E7CAC167AE89</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Snapshots</string>
 		</dict>
 	</array>
 </dict>

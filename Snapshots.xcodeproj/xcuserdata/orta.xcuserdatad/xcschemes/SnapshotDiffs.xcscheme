@@ -38,10 +38,20 @@
       buildConfiguration = "Debug"
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
-      allowLocationSimulation = "YES">
+      allowLocationSimulation = "YES"
+      viewDebuggingEnabled = "No">
       <PathRunnable
          FilePath = "/Applications/Xcode.app">
       </PathRunnable>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "605A022D194A34A500920397"
+            BuildableName = "Snapshots.xcplugin"
+            BlueprintName = "Snapshots"
+            ReferencedContainer = "container:Snapshots.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>

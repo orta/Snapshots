@@ -119,11 +119,16 @@
 
 - (NSArray *)uniqueDiffCommands
 {
-    return [NSOrderedSet orderedSetWithArray: [[self.commands filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(ORKaleidoscopeCommand *command, NSDictionary *bindings) {
+
+    NSOrderedSet *commands = [NSOrderedSet orderedSetWithArray: [self.commands filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(ORKaleidoscopeCommand *command, NSDictionary *bindings) {
         return command.fails;
-    }]] filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(ORKaleidoscopeCommand *command, NSDictionary *bindings) {
+    }]]];
+
+    if (commands.count == 1) return commands.array;
+
+    return [commands.array filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(ORKaleidoscopeCommand *command, NSDictionary *bindings) {
         return [[NSFileManager defaultManager] contentsEqualAtPath:command.afterPath andPath:command.beforePath] == NO;
-    }]]].array;
+    }]];
 }
 
 

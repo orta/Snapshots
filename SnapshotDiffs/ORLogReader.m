@@ -138,7 +138,10 @@
 
 - (NSArray *)uniqueDiffCommands
 {
-    return [[self ksdiffCommands] filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(ORKaleidoscopeCommand *command, NSDictionary *bindings) {
+    NSArray *commands = [self ksdiffCommands];
+    if (commands.count == 1) return commands;
+
+    return [commands filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(ORKaleidoscopeCommand *command, NSDictionary *bindings) {
         return [[NSFileManager defaultManager] contentsEqualAtPath:command.afterPath andPath:command.beforePath] == NO;
     }]];
 }
