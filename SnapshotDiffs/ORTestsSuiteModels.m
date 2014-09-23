@@ -8,6 +8,7 @@
 
 #import "ORTestsSuiteModels.h"
 #import "NSFileManager+RecursiveFind.h"
+#import "ORKaleidoscopeController.h"
 
 @implementation ORTestSuite
 
@@ -31,14 +32,16 @@
     return self.testCases.lastObject;
 }
 
+- (NSArray *)failingTestCases
+{
+    return [self.testCases filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(ORTestCase *testCase, NSDictionary *bindings) {
+        return testCase.hasFailingTests;
+    }]];
+}
+
 - (BOOL)hasFailingTests
 {
-    for (ORTestCase *testCase in self.testCases) {
-        if (testCase.hasFailingTests) {
-            return YES;
-        }
-    }
-    return NO;
+    return self.failingTestCases.count > 0;
 }
 
 - (BOOL)hasNewSnapshots
@@ -104,6 +107,11 @@
     snapshot.testCase = self;
 }
 
+- (ORKaleidoscopeCommand *)latestCommand
+{
+    return self.commands.lastObject;
+}
+
 - (BOOL)hasFailingTests
 {
     return self.uniqueDiffCommands.count > 0;
@@ -111,7 +119,9 @@
 
 - (NSArray *)uniqueDiffCommands
 {
-    return [NSOrderedSet orderedSetWithArray: [self.commands filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(ORKaleidoscopeCommand *command, NSDictionary *bindings) {
+    return [NSOrderedSet orderedSetWithArray: [[self.commands filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(ORKaleidoscopeCommand *command, NSDictionary *bindings) {
+        return command.fails;
+    }]] filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(ORKaleidoscopeCommand *command, NSDictionary *bindings) {
         return [[NSFileManager defaultManager] contentsEqualAtPath:command.afterPath andPath:command.beforePath] == NO;
     }]]].array;
 }
@@ -134,9 +144,19 @@
     return nil;
 }
 
+- (NSURL *)beforeURL
+{
+    return [NSURL fileURLWithPath:self.beforePath];
+}
+
+- (NSURL *)afterURL
+{
+    return [NSURL fileURLWithPath:self.afterPath];
+}
+
 - (BOOL)isEqual:(ORKaleidoscopeCommand *)anObject
 {
-    return [self.beforePath isEqual:anObject.beforePath] && [self.afterPath isEqual:anObject.afterPath];
+    return [self.beforePath isEqual:anObject.beforePath] && [self.afterPath isEqual:anObject.afterPath] && self.fails == anObject.fails;
 }
 
 - (NSUInteger)hash
@@ -147,11 +167,28 @@
 - (void)launch
 {
     NSTask *task = [[NSTask alloc] init];
-    [task setLaunchPath: @"/usr/local/bin/ksdiff"];
-
+    if ([ORKaleidoscopeController isInstalled]) {
+        [task setLaunchPath: @"/usr/local/bin/ksdiff"];
+    }else{
+        [task setLaunchPath: @"/usr/bin/open"];
+    }
     NSArray *arguments = @[ self.beforePath, self.afterPath];
     [task setArguments: arguments];
     [task launch];
+}
+
+- (void)swapImages
+{
+    NSError *error = nil;
+    [[NSFileManager defaultManager] removeItemAtURL:[self beforeURL] error:&error];
+    if (error) {
+        NSLog(@"Error deleting before %@", error);
+    }
+    
+    [[NSFileManager defaultManager] copyItemAtURL:[self afterURL] toURL:[self beforeURL] error:&error];
+    if (error) {
+        NSLog(@"Error moving before to after %@", error);
+    }
 }
 
 @end

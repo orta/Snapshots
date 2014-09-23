@@ -149,6 +149,8 @@ static ORSnapshotDiffs *sharedPlugin;
 - (void)updateToolbarIcon:(NSNotification *)notification
 {
     NSString *imagePath = self.reader.hasSnapshotTestErrors ? @"SnapshotToolbarIconActive" : @"SnapshotToolbarIcon";
+    imagePath = self.reader.hasCGErrors ? @"SnapshotToolbarIconError" : imagePath;
+    
     NSImage *image = [self.bundle imageForResource:imagePath];
     
     for (NSButton *button in self.buttons) {

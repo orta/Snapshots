@@ -8,6 +8,7 @@
 
 #import "ORLogReader.h"
 #import "NSFileManager+RecursiveFind.h"
+#import "NSString+StringBetweenStrings.h"
 
 // This is to allow using id with
 // https://github.com/luisobo/Xcode-RuntimeHeaders/blob/master/IDEFoundation/IDEConsoleItem.h
@@ -57,19 +58,20 @@
     NSString *log = [fullLog content];
 
     [self.mutableLog appendString:log];
-
+ 
     for (NSString *line in [log componentsSeparatedByCharactersInSet:NSCharacterSet.newlineCharacterSet]) {
         if ([line rangeOfString:@"Test Suite"].location != NSNotFound) {
             ORTestSuite *suite = [ORTestSuite suiteFromString:line];
-            if (suite) {
-                [self.mutableTestSuites addObject:suite];
-            }
+            if (suite) [self.mutableTestSuites addObject:suite];
         }
         
         if ([line rangeOfString:@"Test Case"].location != NSNotFound) {
-            ORTestCase *testCase = [ORTestCase caseFromString:line];
-            if (testCase){
-                [self.latestTestSuite.testCases addObject:testCase];
+            if ([line rangeOfString:@"started."].location != NSNotFound) {
+                ORTestCase *testCase = [ORTestCase caseFromString:line];
+                if (testCase) [self.latestTestSuite.testCases addObject:testCase];
+                
+            } else if ([line rangeOfString:@"' failed ("].location != NSNotFound) {
+                [self.mutableDiffCommands.lastObject setFails:YES];
             }
         }
         
@@ -79,6 +81,17 @@
             if (command) {
                 [self.mutableDiffCommands addObject:command];
                 [self.latestTestSuite.latestTestCase addCommand:command];
+            }
+        }
+        
+        if ([line rangeOfString:@"This application, or a library it uses, is using an invalid context"].location != NSNotFound) {
+            _hasCGErrors = YES;
+        }
+        
+        if ([line rangeOfString:@"]"].location != NSNotFound && [line rangeOfString:@"expected a matching snapshot"].location != NSNotFound) {
+            NSString *filepathAndLine = [line or_substringBetween:@"] " and:@" expected a matching snapshot"];
+            if (filepathAndLine && filepathAndLine.length > 1) {
+                [self.latestTestSuite.latestTestCase.commands makeObjectsPerformSelector:@selector(setProjectLocation:) withObject:filepathAndLine];
             }
         }
 
@@ -118,7 +131,9 @@
 
 - (NSArray *)ksdiffCommands
 {
-    return self.mutableDiffCommands.array.copy;
+    return [self.mutableDiffCommands.array filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(ORKaleidoscopeCommand *command, NSDictionary *bindings) {
+        return command.fails;
+    }]];
 }
 
 - (NSArray *)uniqueDiffCommands
@@ -139,6 +154,7 @@
     _mutableDiffCommands = [NSMutableOrderedSet orderedSet];
     _mutableTestSuites = [NSMutableOrderedSet orderedSet];
     _mutableSnapshotCreations = [NSMutableOrderedSet orderedSet];
+    _hasCGErrors = NO;
 }
 
 - (void)dealloc

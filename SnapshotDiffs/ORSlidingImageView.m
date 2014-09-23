@@ -15,6 +15,10 @@ static CGFloat ORContentInset = 8;
 @interface ORSlidingImageView()
 @property (nonatomic, weak) NSImageView *frontImageView;
 @property (nonatomic, weak) NSImageView *backImageView;
+
+@property (nonatomic, strong) NSTextField *frontViewLabel;
+@property (nonatomic, strong) NSTextField *backViewLabel;
+
 @property (nonatomic, strong) NSTrackingArea *trackingArea;
 @property (nonatomic, weak) NSView *divider;
 @end
@@ -55,6 +59,42 @@ static CGFloat ORContentInset = 8;
     
     self.backImageView.image = backImage;
     [self maskViewsWithX:CGRectGetMidX(self.bounds)];
+}
+
+- (void)setBackMessage:(NSString *)backMessage
+{
+    if (!self.backViewLabel) {
+        NSTextField *textViewLabel = [[NSTextField alloc] initWithFrame:[self frameForTheBottomOfImageView:self.backImageView]];
+        textViewLabel.bezeled         = NO;
+        textViewLabel.editable        = NO;
+        textViewLabel.drawsBackground = NO;
+
+        self.backViewLabel = textViewLabel;
+        [self.backImageView addSubview:textViewLabel];
+    }
+    
+    self.backViewLabel.stringValue = backMessage;
+}
+
+- (void)setFrontMessage:(NSString *)frontMessage
+{
+    if (!self.frontViewLabel) {
+        NSTextField *textViewLabel = [[NSTextField alloc] initWithFrame:[self frameForTheBottomOfImageView:self.frontImageView]];
+        textViewLabel.bezeled         = NO;
+        textViewLabel.editable        = NO;
+        textViewLabel.drawsBackground = NO;
+
+        self.frontViewLabel = textViewLabel;
+        
+        [self.frontImageView addSubview:textViewLabel];
+    }
+    
+    self.frontViewLabel.stringValue = frontMessage;
+}
+
+- (CGRect)frameForTheBottomOfImageView:(NSImageView *)imageView
+{
+    return CGRectMake(6, 0, CGRectGetWidth(imageView.frame), 20);
 }
 
 - (BOOL) wantsDefaultClipping

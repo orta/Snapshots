@@ -15,7 +15,6 @@
 - (instancetype)initWithReader:(ORLogReader *)reader;
 - (id)objectForRow:(NSInteger)row;
 
-
 - (NSView *)tableView:(NSTableView *)tableView viewForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row;
 - (BOOL)tableView:(NSTableView *)tableView isGroupRow:(NSInteger)row;
 - (CGFloat)tableView:(NSTableView *)tableView heightOfRow:(NSInteger)row;

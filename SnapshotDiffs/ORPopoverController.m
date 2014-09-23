@@ -91,6 +91,10 @@
         
         self.detailSlidingView.frontImage = [[NSImage alloc] initWithContentsOfFile:[command beforePath]];
         self.detailSlidingView.backImage = [[NSImage alloc] initWithContentsOfFile:[command afterPath]];
+        
+        self.detailSlidingView.frontMessage = @"Reference";
+        self.detailSlidingView.backMessage = @"Recorded";
+        
         self.detailTestDescription.stringValue = [command testCase].name;
         self.currentCommand = command;
     }
@@ -108,6 +112,19 @@
 - (IBAction)tappedCurrentDiff:(id)sender
 {
     [self.currentCommand launch];
+}
+
+- (IBAction)swapImages:(id)sender
+{
+    [self.currentCommand swapImages];
+    self.detailTestDescription.stringValue = @"Swapped Reference with Recorded image.";
+}
+
+- (void)testTitleViewClicked:(NSButton *)sender
+{
+    ORKaleidoscopeCommand *firstCommandInTestCase = [self.tableDataSource objectForRow:sender.tag + 1];
+    NSString *filePath = [firstCommandInTestCase.projectLocation componentsSeparatedByString:@":"].firstObject;
+    [[NSApplication sharedApplication].delegate application:NSApp openFile:filePath];
 }
 
 - (id)tableView:(NSTableView *)tableView objectValueForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row
@@ -146,8 +163,6 @@
     }
     return should;
 }
-
-
 
 // Other wise mainView goes out of scope on transitions
 
