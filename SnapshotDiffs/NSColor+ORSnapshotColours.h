@@ -10,7 +10,7 @@
 
 @interface NSColor (ORSnapshotColours)
 
-+ (NSColor *)or_greenColour;
-+ (NSColor *)or_redColour;
++ (NSColor *)or_orangeColour;
++ (NSColor *)or_blueColour;
 
 @end

@@ -10,14 +10,14 @@
 
 @implementation NSColor (ORSnapshotColours)
 
-+ (NSColor *)or_greenColour
++ (NSColor *)or_orangeColour
 {
-    return [NSColor colorWithCalibratedRed:0.194 green:0.707 blue:0.101 alpha:1.000];
+    return [NSColor colorWithCalibratedRed:0.842 green:0.495 blue:0.202 alpha:1.000];
 }
 
-+ (NSColor *)or_redColour
++ (NSColor *)or_blueColour
 {
-    return [NSColor colorWithCalibratedRed:0.919 green:0.179 blue:0.287 alpha:1.000];
+    return [NSColor colorWithCalibratedRed:0.556 green:0.605 blue:0.802 alpha:1.000];
 }
 
 @end

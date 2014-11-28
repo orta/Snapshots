@@ -38,6 +38,7 @@
 @property (nonatomic, strong) ORPopoverTableDataSource *tableDataSource;
 
 @property (nonatomic, weak) ORKaleidoscopeCommand *currentCommand;
+@property (strong) IBOutlet NSView *actionButtonsContainerView;
 
 @end
 
@@ -97,6 +98,7 @@
         
         self.detailTestDescription.stringValue = [command testCase].name;
         self.currentCommand = command;
+        self.actionButtonsContainerView.hidden = NO;
     }
     
     if ([command isKindOfClass:ORSnapshotCreationReference.class]) {
@@ -105,8 +107,8 @@
         
         self.plainImagePreviewView.image = [[NSImage alloc] initWithContentsOfFile:[command path]];
         self.detailTestDescription.stringValue = [command testCase].name;
+        self.actionButtonsContainerView.hidden = YES;
     }
-    
 }
 
 - (IBAction)tappedCurrentDiff:(id)sender
@@ -118,6 +120,12 @@
 {
     [self.currentCommand swapImages];
     self.detailTestDescription.stringValue = @"Swapped Reference with Recorded image.";
+}
+
+- (IBAction)openInFinder:(id)sender
+{
+    [self.currentCommand openInFinder];
+
 }
 
 - (void)testTitleViewClicked:(NSButton *)sender

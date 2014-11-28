@@ -1,24 +1,25 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="5056" systemVersion="14A329f" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6221" systemVersion="14C68k" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="5056"/>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6221"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="ORPopoverController">
             <connections>
+                <outlet property="actionButtonsContainerView" destination="IvA-Qd-tzk" id="sMj-GE-OWY"/>
                 <outlet property="detailSlidingView" destination="vTy-JQ-RFh" id="CXo-lJ-PkG"/>
                 <outlet property="detailTestDescription" destination="Ds5-1M-2kH" id="OBa-Nz-AFK"/>
                 <outlet property="detailView" destination="1qD-Mb-X88" id="9JK-hq-m8n"/>
                 <outlet property="failingTestsTitle" destination="2au-A8-Rb4" id="gGL-Ps-eOz"/>
                 <outlet property="mainView" destination="8IX-oz-5Bw" id="qs8-7p-Axt"/>
-                <outlet property="openAllButton" destination="cUR-qy-SrZ" id="lLa-RY-bLI"/>
                 <outlet property="plainImagePreviewView" destination="auu-Gh-2MY" id="yDf-1f-F1n"/>
                 <outlet property="testTableView" destination="Wxm-sI-xiw" id="NKz-Sz-eYC"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
             </connections>
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
-        <customObject id="-3" userLabel="Application"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customView wantsLayer="YES" id="Hz6-mo-xeY" userLabel="Main View">
             <rect key="frame" x="0.0" y="0.0" width="575" height="480"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -41,7 +42,6 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" selectionHighlightStyle="none" columnSelection="YES" multipleSelection="NO" emptySelection="NO" autosaveColumns="NO" rowHeight="166" viewBased="YES" id="Wxm-sI-xiw">
-                                        <rect key="frame" x="0.0" y="0.0" width="255" height="440"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <size key="intercellSpacing" width="0.0" height="2"/>
                                         <color key="backgroundColor" red="0.9490196704864502" green="0.9490196704864502" blue="0.9490196704864502" alpha="1" colorSpace="deviceRGB"/>
@@ -64,10 +64,10 @@
                                                         <rect key="frame" x="0.0" y="1" width="255" height="28"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                         <subviews>
-                                                            <button appearanceType="aqua" id="ZhB-7P-g0R">
-                                                                <rect key="frame" x="14" y="-15" width="238" height="59"/>
-                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                                <buttonCell key="cell" type="bevel" title="ARTestName" bezelStyle="regularSquare" image="NSShareTemplate" imagePosition="left" alignment="left" imageScaling="proportionallyDown" inset="2" id="IS2-He-n2A">
+                                                            <button id="ZhB-7P-g0R">
+                                                                <rect key="frame" x="0.0" y="-15" width="258" height="59"/>
+                                                                <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
+                                                                <buttonCell key="cell" type="bevel" title="  ARTestName" bezelStyle="regularSquare" image="NSShareTemplate" alignment="left" imageScaling="proportionallyDown" inset="2" id="IS2-He-n2A">
                                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                                     <font key="font" metaFont="system" size="10"/>
                                                                 </buttonCell>
@@ -81,17 +81,17 @@
                                                         <rect key="frame" x="0.0" y="31" width="255" height="180"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                         <subviews>
-                                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="hS2-Nt-ONG">
-                                                                <rect key="frame" x="12" y="150" width="38" height="17"/>
+                                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="hS2-Nt-ONG" customClass="ARLabel">
+                                                                <rect key="frame" x="12" y="150" width="18" height="17"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="✨" id="BWP-6Q-NQI">
                                                                     <font key="font" metaFont="system"/>
                                                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                                    <color key="backgroundColor" white="1" alpha="0.0" colorSpace="deviceWhite"/>
                                                                 </textFieldCell>
                                                             </textField>
                                                             <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" id="TMI-3X-Hcm">
-                                                                <rect key="frame" x="23" y="23" width="94" height="134"/>
+                                                                <rect key="frame" x="26" y="23" width="91" height="134"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="HIL-Sn-keT"/>
                                                             </imageView>
@@ -112,6 +112,15 @@
                                                                 <rect key="frame" x="20" y="10" width="100" height="140"/>
                                                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" imageFrameStyle="photo" id="oTl-UX-vRg"/>
                                                             </imageView>
+                                                            <textField autoresizesSubviews="NO" wantsLayer="YES" focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" id="cYV-wT-cFU" customClass="ARLabel">
+                                                                <rect key="frame" x="9" y="131" width="18" height="17"/>
+                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                                <textFieldCell key="cell" enabled="NO" refusesFirstResponder="YES" allowsUndo="NO" sendsActionOnEndEditing="YES" focusRingType="none" title="✨" id="jEy-1U-GK2" customClass="ARLabelCell">
+                                                                    <font key="font" metaFont="system"/>
+                                                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                                    <color key="backgroundColor" white="1" alpha="0.0" colorSpace="deviceWhite"/>
+                                                                </textFieldCell>
+                                                            </textField>
                                                         </subviews>
                                                         <connections>
                                                             <outlet property="fromImageView" destination="bxa-U6-Ob3" id="gYr-OP-5MG"/>
@@ -130,7 +139,6 @@
                                 <color key="backgroundColor" red="0.9490196704864502" green="0.9490196704864502" blue="0.9490196704864502" alpha="1" colorSpace="deviceRGB"/>
                             </clipView>
                             <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="0u4-eB-GWI">
-                                <rect key="frame" x="0.0" y="-16" width="0.0" height="16"/>
                                 <autoresizingMask key="autoresizingMask"/>
                             </scroller>
                             <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="K6X-mN-QR3">
@@ -138,16 +146,6 @@
                                 <autoresizingMask key="autoresizingMask"/>
                             </scroller>
                         </scrollView>
-                        <button toolTip="Open all Tests in Kaleidoscope" allowsExpansionToolTips="YES" id="cUR-qy-SrZ">
-                            <rect key="frame" x="194" y="448" width="54" height="23"/>
-                            <buttonCell key="cell" type="bevel" bezelStyle="regularSquare" image="KaleidoscopeAllButton" imagePosition="overlaps" alignment="center" alternateImage="KaleidoscopeAllButtonActive" refusesFirstResponder="YES" imageScaling="proportionallyDown" inset="2" id="P7n-gH-DAu">
-                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                <font key="font" metaFont="system" size="10"/>
-                            </buttonCell>
-                            <connections>
-                                <action selector="openAll:" target="-2" id="YlY-Ny-aMP"/>
-                            </connections>
-                        </button>
                     </subviews>
                 </customView>
                 <customView id="1qD-Mb-X88" userLabel="Detail View">
@@ -163,7 +161,7 @@
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         </customView>
                         <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" setsMaxLayoutWidthAtFirstLayout="YES" id="Ds5-1M-2kH">
-                            <rect key="frame" x="21" y="4" width="189" height="29"/>
+                            <rect key="frame" x="21" y="13" width="189" height="29"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Multiline Label this should be a mult line kinda bag" id="qi6-tp-gR4">
                                 <font key="font" metaFont="smallSystem"/>
@@ -171,36 +169,51 @@
                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                             </textFieldCell>
                         </textField>
-                        <button appearanceType="aqua" verticalHuggingPriority="750" id="UPJ-HU-AwR">
-                            <rect key="frame" x="268" y="12" width="32" height="17"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                            <buttonCell key="cell" type="inline" title="Diff" bezelStyle="inline" alignment="center" borderStyle="border" inset="2" id="jhf-mI-7w3">
-                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                <font key="font" metaFont="smallSystemBold"/>
-                            </buttonCell>
-                            <connections>
-                                <action selector="tappedCurrentDiff:" target="-2" id="bxv-R3-G07"/>
-                            </connections>
-                        </button>
-                        <button appearanceType="aqua" verticalHuggingPriority="750" id="HrI-oX-IPW">
-                            <rect key="frame" x="222" y="12" width="43" height="17"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                            <buttonCell key="cell" type="inline" title="Swap" bezelStyle="inline" alignment="center" borderStyle="border" inset="2" id="0yk-Nu-8zg">
-                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                <font key="font" metaFont="smallSystemBold"/>
-                            </buttonCell>
-                            <connections>
-                                <action selector="swapImages:" target="-2" id="KcI-eO-w94"/>
-                            </connections>
-                        </button>
+                        <customView id="IvA-Qd-tzk">
+                            <rect key="frame" x="205" y="-13" width="115" height="56"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <button verticalHuggingPriority="750" id="ZvJ-HO-BrE">
+                                    <rect key="frame" x="0.0" y="19" width="95" height="17"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                    <buttonCell key="cell" type="inline" title="Open in Finder" bezelStyle="inline" alignment="center" borderStyle="border" inset="2" id="zls-0c-O8K">
+                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                        <font key="font" metaFont="smallSystemBold"/>
+                                    </buttonCell>
+                                    <connections>
+                                        <action selector="openInFinder:" target="-2" id="QvC-Xn-gMG"/>
+                                    </connections>
+                                </button>
+                                <button verticalHuggingPriority="750" id="HrI-oX-IPW">
+                                    <rect key="frame" x="0.0" y="38" width="45" height="17"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                    <buttonCell key="cell" type="inline" title="Swap" bezelStyle="inline" alignment="center" borderStyle="border" inset="2" id="0yk-Nu-8zg">
+                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                        <font key="font" metaFont="smallSystemBold"/>
+                                    </buttonCell>
+                                    <connections>
+                                        <action selector="swapImages:" target="-2" id="KcI-eO-w94"/>
+                                    </connections>
+                                </button>
+                                <button verticalHuggingPriority="750" id="UPJ-HU-AwR">
+                                    <rect key="frame" x="50" y="38" width="45" height="17"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                    <buttonCell key="cell" type="inline" title="Diff" bezelStyle="inline" alignment="center" borderStyle="border" inset="2" id="jhf-mI-7w3">
+                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                        <font key="font" metaFont="smallSystemBold"/>
+                                    </buttonCell>
+                                    <connections>
+                                        <action selector="tappedCurrentDiff:" target="-2" id="bxv-R3-G07"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                        </customView>
                     </subviews>
                 </customView>
             </subviews>
         </customView>
     </objects>
     <resources>
-        <image name="KaleidoscopeAllButton" width="108" height="46"/>
-        <image name="KaleidoscopeAllButtonActive" width="108" height="46"/>
         <image name="NSShareTemplate" width="11" height="16"/>
     </resources>
 </document>

@@ -23,8 +23,8 @@
     self.fromImageView.layer.borderWidth = 1;
     self.toImageView.layer.borderWidth = 1;
     
-    self.fromImageView.layer.borderColor = [NSColor or_greenColour].CGColor;
-    self.toImageView.layer.borderColor = [NSColor or_redColour].CGColor;
+    self.fromImageView.layer.borderColor = [NSColor or_blueColour].CGColor;
+    self.toImageView.layer.borderColor = [NSColor or_orangeColour].CGColor;
     
     self.fromImageView.image = before;
     self.toImageView.image = to;

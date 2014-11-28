@@ -9,6 +9,7 @@
 #import "ORSlidingImageView.h"
 #import <Quartz/Quartz.h>
 #import "NSColor+ORSnapshotColours.h"
+#import "ARLabel.h"
 
 static CGFloat ORContentInset = 8;
 
@@ -34,10 +35,11 @@ static CGFloat ORContentInset = 8;
         [self addSubview:frontImageView];
         
         self.frontImageView = frontImageView;
-        self.frontImageView.layer.borderColor = [NSColor or_redColour].CGColor;
+        self.frontImageView.layer.borderColor = [NSColor or_blueColour].CGColor;
     }
     
     self.frontImageView.image = frontImage;
+    [self moveLabelsToFront];
 }
 
 - (void)setBackImage:(NSImage *)backImage
@@ -51,7 +53,7 @@ static CGFloat ORContentInset = 8;
         [self addSubview:backImageView];
         [self addSubview:front];
         
-        backImageView.layer.borderColor = [NSColor or_greenColour].CGColor;
+        backImageView.layer.borderColor = [NSColor or_orangeColour].CGColor;
         self.backImageView = backImageView;
         
         [self createDivider];
@@ -59,30 +61,26 @@ static CGFloat ORContentInset = 8;
     
     self.backImageView.image = backImage;
     [self maskViewsWithX:CGRectGetMidX(self.bounds)];
+    [self moveLabelsToFront];
 }
 
 - (void)setBackMessage:(NSString *)backMessage
 {
     if (!self.backViewLabel) {
-        NSTextField *textViewLabel = [[NSTextField alloc] initWithFrame:[self frameForTheBottomOfImageView:self.backImageView]];
-        textViewLabel.bezeled         = NO;
-        textViewLabel.editable        = NO;
-        textViewLabel.drawsBackground = NO;
+        NSTextField *textViewLabel = [[ARLabel alloc] initWithFrame:[self frameForTheBottomOfImageView:self.backImageView]];
 
         self.backViewLabel = textViewLabel;
         [self.backImageView addSubview:textViewLabel];
     }
     
     self.backViewLabel.stringValue = backMessage;
+    [self moveLabelsToFront];
 }
 
 - (void)setFrontMessage:(NSString *)frontMessage
 {
     if (!self.frontViewLabel) {
-        NSTextField *textViewLabel = [[NSTextField alloc] initWithFrame:[self frameForTheBottomOfImageView:self.frontImageView]];
-        textViewLabel.bezeled         = NO;
-        textViewLabel.editable        = NO;
-        textViewLabel.drawsBackground = NO;
+        NSTextField *textViewLabel = [[ARLabel alloc] initWithFrame:[self frameForTheBottomOfImageView:self.frontImageView]];
 
         self.frontViewLabel = textViewLabel;
         
@@ -90,6 +88,16 @@ static CGFloat ORContentInset = 8;
     }
     
     self.frontViewLabel.stringValue = frontMessage;
+    [self moveLabelsToFront];
+}
+
+- (void)moveLabelsToFront
+{
+    [self.frontViewLabel removeFromSuperview];
+    [self.frontImageView addSubview:self.frontViewLabel positioned:NSWindowAbove relativeTo:nil];
+
+    [self.backViewLabel removeFromSuperview];
+    [self.backImageView addSubview:self.backViewLabel positioned:NSWindowAbove relativeTo:nil];
 }
 
 - (CGRect)frameForTheBottomOfImageView:(NSImageView *)imageView

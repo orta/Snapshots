@@ -9,6 +9,7 @@
 #import "ORTestsSuiteModels.h"
 #import "NSFileManager+RecursiveFind.h"
 #import "ORKaleidoscopeController.h"
+#import <AppKit/AppKit.h>
 
 @implementation ORTestSuite
 
@@ -203,6 +204,11 @@
     if (![[NSFileManager defaultManager] copyItemAtURL:[self afterURL] toURL:originalFileURL error:&error]) {
         NSLog(@"Error moving before to after %@", error);
     }
+}
+
+- (void)openInFinder
+{
+    [[NSWorkspace sharedWorkspace] activateFileViewerSelectingURLs:@[ self.beforeURL ]];
 }
 
 @end

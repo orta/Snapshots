@@ -67,7 +67,7 @@
 
     if ([command isKindOfClass:NSString.class]) {
         ORTestCaseTitleView *titleFieldView = [tableView makeViewWithIdentifier:@"title" owner:self];
-        [titleFieldView.titleButton setTitle: [@" " stringByAppendingString:command]];
+        [titleFieldView.titleButton setTitle: [@" Open " stringByAppendingString:command]];
         [titleFieldView.titleButton setAction:@selector(testTitleViewClicked:)];
         titleFieldView.titleButton.tag = row;
         view = titleFieldView;
