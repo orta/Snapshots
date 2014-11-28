@@ -68,7 +68,7 @@ static ORSnapshotDiffs *sharedPlugin;
                             [holder addSubview:imageView];
                             
                             // Make the damn button
-                            CGRect snapshotFrame = CGRectMake(imageView.frame.origin.x - 14 - 20, 0, 20, 25);
+                            CGRect snapshotFrame = CGRectMake(imageView.frame.origin.x - 14 - 14, 0, 20, 25);
                             NSButton *snapshotButton = [[NSButton alloc] initWithFrame:snapshotFrame];
                             snapshotButton.image = image;
                             snapshotButton.alternateImage = image;

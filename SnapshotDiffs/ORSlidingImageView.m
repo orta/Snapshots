@@ -68,6 +68,8 @@ static CGFloat ORContentInset = 8;
 {
     if (!self.backViewLabel) {
         NSTextField *textViewLabel = [[ARLabel alloc] initWithFrame:[self frameForTheBottomOfImageView:self.backImageView]];
+        textViewLabel.drawsBackground = YES;
+        textViewLabel.backgroundColor = [NSColor colorWithRed:1 green:1 blue:1 alpha:0.5];
 
         self.backViewLabel = textViewLabel;
         [self.backImageView addSubview:textViewLabel];
@@ -81,6 +83,8 @@ static CGFloat ORContentInset = 8;
 {
     if (!self.frontViewLabel) {
         NSTextField *textViewLabel = [[ARLabel alloc] initWithFrame:[self frameForTheBottomOfImageView:self.frontImageView]];
+        textViewLabel.drawsBackground = YES;
+        textViewLabel.backgroundColor = [NSColor colorWithRed:1 green:1 blue:1 alpha:0.5];
 
         self.frontViewLabel = textViewLabel;
         
@@ -102,7 +106,7 @@ static CGFloat ORContentInset = 8;
 
 - (CGRect)frameForTheBottomOfImageView:(NSImageView *)imageView
 {
-    return CGRectMake(6, 0, CGRectGetWidth(imageView.frame), 20);
+    return CGRectMake(6, 0, 64, 20);
 }
 
 - (BOOL) wantsDefaultClipping

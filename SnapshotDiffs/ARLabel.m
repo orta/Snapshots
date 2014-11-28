@@ -15,11 +15,6 @@
 
 @implementation ARLabelCell
 
-- (void)drawRect:(NSRect)rect {
-    [[NSColor clearColor] set];
-    NSRectFill(rect);
-}
-
 
 @end
 
@@ -40,18 +35,16 @@
     return self;
 }
 
+- (BOOL)allowsVibrancy
+{
+    return NO;
+}
+
 - (void)setup
 {
     self.bezeled         = NO;
     self.editable        = NO;
     self.drawsBackground = NO;
-    self.refusesFirstResponder = YES;
-//    self.wantsLayer      = YES;
-//    self.layer.backgroundColor = [NSColor clearColor].CGColor;
-    self.backgroundColor = [NSColor clearColor];
-
-    [(NSTextFieldCell *)self.cell setBackgroundColor:[NSColor clearColor]];
-    [(NSTextFieldCell *)self.cell setDrawsBackground:NO];
 }
 
 
