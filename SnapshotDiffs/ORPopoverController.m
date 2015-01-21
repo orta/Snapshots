@@ -128,6 +128,10 @@
 
 }
 
+- (IBAction)openInPreview:(id)sender {
+    [self.currentCommand openInPreview];
+}
+
 - (void)testTitleViewClicked:(NSButton *)sender
 {
     ORKaleidoscopeCommand *firstCommandInTestCase = [self.tableDataSource objectForRow:sender.tag + 1];

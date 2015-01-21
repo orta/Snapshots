@@ -211,6 +211,11 @@
     [[NSWorkspace sharedWorkspace] activateFileViewerSelectingURLs:@[ self.beforeURL ]];
 }
 
+- (void)openInPreview
+{
+    [[NSWorkspace sharedWorkspace] openFile:self.beforePath withApplication:@"Preview"];
+}
+
 @end
 
 
