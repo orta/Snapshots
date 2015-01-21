@@ -213,7 +213,11 @@
 
 - (void)openInPreview
 {
-    [[NSWorkspace sharedWorkspace] openFile:self.beforePath withApplication:@"Preview"];
+    NSString *lastPathComponent = [self.beforePath lastPathComponent];
+    NSRange underscoreRange = [lastPathComponent rangeOfString:@"_"];
+    NSString *diffFilename = [lastPathComponent stringByReplacingCharactersInRange:NSMakeRange(0, underscoreRange.location) withString:@"diff"];
+    NSString *diffPath = [self.beforePath stringByReplacingOccurrencesOfString:lastPathComponent withString:diffFilename];
+    [[NSWorkspace sharedWorkspace] openFile:diffPath withApplication:@"Preview"];
 }
 
 @end
