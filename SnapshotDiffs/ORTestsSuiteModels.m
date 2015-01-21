@@ -211,6 +211,15 @@
     [[NSWorkspace sharedWorkspace] activateFileViewerSelectingURLs:@[ self.beforeURL ]];
 }
 
+- (void)openInPreview
+{
+    NSString *lastPathComponent = [self.beforePath lastPathComponent];
+    NSRange underscoreRange = [lastPathComponent rangeOfString:@"_"];
+    NSString *diffFilename = [lastPathComponent stringByReplacingCharactersInRange:NSMakeRange(0, underscoreRange.location) withString:@"diff"];
+    NSString *diffPath = [self.beforePath stringByReplacingOccurrencesOfString:lastPathComponent withString:diffFilename];
+    [[NSWorkspace sharedWorkspace] openFile:diffPath withApplication:@"Preview"];
+}
+
 @end
 
 

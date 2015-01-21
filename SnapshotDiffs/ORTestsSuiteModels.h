@@ -44,6 +44,7 @@
 - (void)launch;
 - (void)swapImages;
 - (void)openInFinder;
+- (void)openInPreview;
 
 @property (nonatomic, assign) BOOL fails;
 @property (nonatomic, copy) NSString *beforePath;
