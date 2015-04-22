@@ -5,7 +5,7 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>294D79FC-0722-423D-A142-570FBC34BE9C</string>
+	<string>4C3DE1B8-79E0-4451-809F-E07E05FDB2CB</string>
 	<key>IDESourceControlProjectName</key>
 	<string>project</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
@@ -14,11 +14,11 @@
 		<string>https://github.com/orta/Snapshots.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>Snapshots.xcodeproj/project.xcworkspace</string>
+	<string>Testing/SnapshotsTests/SnapshotsTests.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>8FC017F60A23AF8D62BA01FDC8B1E7CAC167AE89</key>
-		<string>../..</string>
+		<string>../../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/orta/Snapshots.git</string>

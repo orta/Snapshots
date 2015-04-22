@@ -1,0 +1,81 @@
+
+Test Suite 'ARTopViewControllerSpec' started at 2015-04-22 15:52:50 +0000
+Test Case '-[ARTopViewControllerSpec test_visuals__default_state_as_ipad]' started.
+2015-04-22 11:52:50.063 FolioDev[15845:607] -[WYPopoverController positionPopover:] (2541) : popoverContainerView.frame = {{0, 0}, {0, 0}}
+2015-04-22 11:52:50.301 FolioDev[15845:607] If you have Kaleidoscope installed you can run this command to see an image diff:
+ksdiff "/Users/orta/Library/Developer/CoreSimulator/Devices/91CEFD41-40FA-4240-B239-B68D3BB54333/data/Applications/6B54B9B7-81C1-402A-9016-806EBC3A6D84/tmp/ARTopViewControllerSpec/reference_default state as ipad dark@2x.png" "/Users/orta/Library/Developer/CoreSimulator/Devices/91CEFD41-40FA-4240-B239-B68D3BB54333/data/Applications/6B54B9B7-81C1-402A-9016-806EBC3A6D84/tmp/ARTopViewControllerSpec/failed_default state as ipad dark@2x.png"
+2015-04-22 11:52:50.301 FolioDev[15845:607] /Users/orta/dev/ios/energy/ArtsyFolio Tests/View Controllers/ARTopViewControllerTests.m:44 expected a matching snapshot named default state as ipad dark
+NSLocalizedDescription: Images different
+/Users/orta/dev/ios/energy/ArtsyFolio Tests/View Controllers/ARTopViewControllerTests.m:44: error: -[ARTopViewControllerSpec test_visuals__default_state_as_ipad] : expected a matching snapshot named default state as ipad dark
+NSLocalizedDescription: Images different
+2015-04-22 11:52:50.305 FolioDev[15845:607] -[WYPopoverController positionPopover:] (2541) : popoverContainerView.frame = {{0, 0}, {0, 0}}
+2015-04-22 11:52:50.541 FolioDev[15845:607] If you have Kaleidoscope installed you can run this command to see an image diff:
+ksdiff "/Users/orta/Library/Developer/CoreSimulator/Devices/91CEFD41-40FA-4240-B239-B68D3BB54333/data/Applications/6B54B9B7-81C1-402A-9016-806EBC3A6D84/tmp/ARTopViewControllerSpec/reference_default state as ipad light@2x.png" "/Users/orta/Library/Developer/CoreSimulator/Devices/91CEFD41-40FA-4240-B239-B68D3BB54333/data/Applications/6B54B9B7-81C1-402A-9016-806EBC3A6D84/tmp/ARTopViewControllerSpec/failed_default state as ipad light@2x.png"
+2015-04-22 11:52:50.542 FolioDev[15845:607] /Users/orta/dev/ios/energy/ArtsyFolio Tests/View Controllers/ARTopViewControllerTests.m:44 expected a matching snapshot named default state as ipad light
+NSLocalizedDescription: Images different
+/Users/orta/dev/ios/energy/ArtsyFolio Tests/View Controllers/ARTopViewControllerTests.m:44: error: -[ARTopViewControllerSpec test_visuals__default_state_as_ipad] : expected a matching snapshot named default state as ipad light
+NSLocalizedDescription: Images different
+Test Case '-[ARTopViewControllerSpec test_visuals__default_state_as_ipad]' failed (0.496 seconds).
+Test Case '-[ARTopViewControllerSpec test_visuals__default_state_as_iphone]' started.
+2015-04-22 11:52:50.559 FolioDev[15845:607] -[WYPopoverController positionPopover:] (2541) : popoverContainerView.frame = {{0, 0}, {0, 0}}
+2015-04-22 11:52:50.584 FolioDev[15845:607] -[WYPopoverController positionPopover:] (2541) : popoverContainerView.frame = {{0, 0}, {0, 0}}
+Test Case '-[ARTopViewControllerSpec test_visuals__default_state_as_iphone]' passed (0.059 seconds).
+Test Case '-[ARTopViewControllerSpec test_visuals__default_state_for_collector_folio_as_ipad]' started.
+2015-04-22 11:52:50.620 FolioDev[15845:607] -[WYPopoverController positionPopover:] (2541) : popoverContainerView.frame = {{0, 0}, {0, 0}}
+2015-04-22 11:52:50.853 FolioDev[15845:607] If you have Kaleidoscope installed you can run this command to see an image diff:
+ksdiff "/Users/orta/Library/Developer/CoreSimulator/Devices/91CEFD41-40FA-4240-B239-B68D3BB54333/data/Applications/6B54B9B7-81C1-402A-9016-806EBC3A6D84/tmp/ARTopViewControllerSpec/reference_default state for collector folio as ipad dark@2x.png" "/Users/orta/Library/Developer/CoreSimulator/Devices/91CEFD41-40FA-4240-B239-B68D3BB54333/data/Applications/6B54B9B7-81C1-402A-9016-806EBC3A6D84/tmp/ARTopViewControllerSpec/failed_default state for collector folio as ipad dark@2x.png"
+2015-04-22 11:52:50.853 FolioDev[15845:607] /Users/orta/dev/ios/energy/ArtsyFolio Tests/View Controllers/ARTopViewControllerTests.m:50 expected a matching snapshot named default state for collector folio as ipad dark
+NSLocalizedDescription: Images different
+/Users/orta/dev/ios/energy/ArtsyFolio Tests/View Controllers/ARTopViewControllerTests.m:50: error: -[ARTopViewControllerSpec test_visuals__default_state_for_collector_folio_as_ipad] : expected a matching snapshot named default state for collector folio as ipad dark
+NSLocalizedDescription: Images different
+2015-04-22 11:52:50.857 FolioDev[15845:607] -[WYPopoverController positionPopover:] (2541) : popoverContainerView.frame = {{0, 0}, {0, 0}}
+2015-04-22 11:52:51.091 FolioDev[15845:607] If you have Kaleidoscope installed you can run this command to see an image diff:
+ksdiff "/Users/orta/Library/Developer/CoreSimulator/Devices/91CEFD41-40FA-4240-B239-B68D3BB54333/data/Applications/6B54B9B7-81C1-402A-9016-806EBC3A6D84/tmp/ARTopViewControllerSpec/reference_default state for collector folio as ipad light@2x.png" "/Users/orta/Library/Developer/CoreSimulator/Devices/91CEFD41-40FA-4240-B239-B68D3BB54333/data/Applications/6B54B9B7-81C1-402A-9016-806EBC3A6D84/tmp/ARTopViewControllerSpec/failed_default state for collector folio as ipad light@2x.png"
+2015-04-22 11:52:51.092 FolioDev[15845:607] /Users/orta/dev/ios/energy/ArtsyFolio Tests/View Controllers/ARTopViewControllerTests.m:50 expected a matching snapshot named default state for collector folio as ipad light
+NSLocalizedDescription: Images different
+/Users/orta/dev/ios/energy/ArtsyFolio Tests/View Controllers/ARTopViewControllerTests.m:50: error: -[ARTopViewControllerSpec test_visuals__default_state_for_collector_folio_as_ipad] : expected a matching snapshot named default state for collector folio as ipad light
+NSLocalizedDescription: Images different
+Test Case '-[ARTopViewControllerSpec test_visuals__default_state_for_collector_folio_as_ipad]' failed (0.491 seconds).
+Test Case '-[ARTopViewControllerSpec test_visuals__default_state_for_collector_folio_as_iphone]' started.
+2015-04-22 11:52:51.110 FolioDev[15845:607] -[WYPopoverController positionPopover:] (2541) : popoverContainerView.frame = {{0, 0}, {0, 0}}
+2015-04-22 11:52:51.133 FolioDev[15845:607] -[WYPopoverController positionPopover:] (2541) : popoverContainerView.frame = {{0, 0}, {0, 0}}
+Test Case '-[ARTopViewControllerSpec test_visuals__default_state_for_collector_folio_as_iphone]' passed (0.059 seconds).
+Test Case '-[ARTopViewControllerSpec test_visuals__showing_edit_in_albums_mode_as_ipad]' started.
+2015-04-22 11:52:51.168 FolioDev[15845:607] -[WYPopoverController positionPopover:] (2541) : popoverContainerView.frame = {{0, 0}, {0, 0}}
+2015-04-22 11:52:51.409 FolioDev[15845:607] If you have Kaleidoscope installed you can run this command to see an image diff:
+ksdiff "/Users/orta/Library/Developer/CoreSimulator/Devices/91CEFD41-40FA-4240-B239-B68D3BB54333/data/Applications/6B54B9B7-81C1-402A-9016-806EBC3A6D84/tmp/ARTopViewControllerSpec/reference_showing edit in albums mode as ipad dark@2x.png" "/Users/orta/Library/Developer/CoreSimulator/Devices/91CEFD41-40FA-4240-B239-B68D3BB54333/data/Applications/6B54B9B7-81C1-402A-9016-806EBC3A6D84/tmp/ARTopViewControllerSpec/failed_showing edit in albums mode as ipad dark@2x.png"
+2015-04-22 11:52:51.409 FolioDev[15845:607] /Users/orta/dev/ios/energy/ArtsyFolio Tests/View Controllers/ARTopViewControllerTests.m:58 expected a matching snapshot named showing edit in albums mode as ipad dark
+NSLocalizedDescription: Images different
+/Users/orta/dev/ios/energy/ArtsyFolio Tests/View Controllers/ARTopViewControllerTests.m:58: error: -[ARTopViewControllerSpec test_visuals__showing_edit_in_albums_mode_as_ipad] : expected a matching snapshot named showing edit in albums mode as ipad dark
+NSLocalizedDescription: Images different
+2015-04-22 11:52:51.413 FolioDev[15845:607] -[WYPopoverController positionPopover:] (2541) : popoverContainerView.frame = {{0, 0}, {0, 0}}
+2015-04-22 11:52:51.654 FolioDev[15845:607] If you have Kaleidoscope installed you can run this command to see an image diff:
+ksdiff "/Users/orta/Library/Developer/CoreSimulator/Devices/91CEFD41-40FA-4240-B239-B68D3BB54333/data/Applications/6B54B9B7-81C1-402A-9016-806EBC3A6D84/tmp/ARTopViewControllerSpec/reference_showing edit in albums mode as ipad light@2x.png" "/Users/orta/Library/Developer/CoreSimulator/Devices/91CEFD41-40FA-4240-B239-B68D3BB54333/data/Applications/6B54B9B7-81C1-402A-9016-806EBC3A6D84/tmp/ARTopViewControllerSpec/failed_showing edit in albums mode as ipad light@2x.png"
+2015-04-22 11:52:51.654 FolioDev[15845:607] /Users/orta/dev/ios/energy/ArtsyFolio Tests/View Controllers/ARTopViewControllerTests.m:58 expected a matching snapshot named showing edit in albums mode as ipad light
+NSLocalizedDescription: Images different
+/Users/orta/dev/ios/energy/ArtsyFolio Tests/View Controllers/ARTopViewControllerTests.m:58: error: -[ARTopViewControllerSpec test_visuals__showing_edit_in_albums_mode_as_ipad] : expected a matching snapshot named showing edit in albums mode as ipad light
+NSLocalizedDescription: Images different
+Test Case '-[ARTopViewControllerSpec test_visuals__showing_edit_in_albums_mode_as_ipad]' failed (0.504 seconds).
+Test Case '-[ARTopViewControllerSpec test_visuals__showing_edit_in_albums_mode_as_iphone]' started.
+2015-04-22 11:52:51.673 FolioDev[15845:607] -[WYPopoverController positionPopover:] (2541) : popoverContainerView.frame = {{0, 0}, {0, 0}}
+2015-04-22 11:52:51.697 FolioDev[15845:607] -[WYPopoverController positionPopover:] (2541) : popoverContainerView.frame = {{0, 0}, {0, 0}}
+Test Case '-[ARTopViewControllerSpec test_visuals__showing_edit_in_albums_mode_as_iphone]' passed (0.062 seconds).
+Test Case '-[ARTopViewControllerSpec test_visuals__showing_edit_mode_for_albums_as_ipad]' started.
+2015-04-22 11:52:51.750 FolioDev[15845:607] -[WYPopoverController positionPopover:] (2541) : popoverContainerView.frame = {{0, 0}, {0, 0}}
+2015-04-22 11:52:51.982 FolioDev[15845:607] If you have Kaleidoscope installed you can run this command to see an image diff:
+ksdiff "/Users/orta/Library/Developer/CoreSimulator/Devices/91CEFD41-40FA-4240-B239-B68D3BB54333/data/Applications/6B54B9B7-81C1-402A-9016-806EBC3A6D84/tmp/ARTopViewControllerSpec/reference_showing edit mode for albums as ipad dark@2x.png" "/Users/orta/Library/Developer/CoreSimulator/Devices/91CEFD41-40FA-4240-B239-B68D3BB54333/data/Applications/6B54B9B7-81C1-402A-9016-806EBC3A6D84/tmp/ARTopViewControllerSpec/failed_showing edit mode for albums as ipad dark@2x.png"
+2015-04-22 11:52:51.982 FolioDev[15845:607] /Users/orta/dev/ios/energy/ArtsyFolio Tests/View Controllers/ARTopViewControllerTests.m:66 expected a matching snapshot named showing edit mode for albums as ipad dark
+NSLocalizedDescription: Images different
+/Users/orta/dev/ios/energy/ArtsyFolio Tests/View Controllers/ARTopViewControllerTests.m:66: error: -[ARTopViewControllerSpec test_visuals__showing_edit_mode_for_albums_as_ipad] : expected a matching snapshot named showing edit mode for albums as ipad dark
+NSLocalizedDescription: Images different
+2015-04-22 11:52:52.001 FolioDev[15845:607] -[WYPopoverController positionPopover:] (2541) : popoverContainerView.frame = {{0, 0}, {0, 0}}
+2015-04-22 11:52:52.232 FolioDev[15845:607] If you have Kaleidoscope installed you can run this command to see an image diff:
+ksdiff "/Users/orta/Library/Developer/CoreSimulator/Devices/91CEFD41-40FA-4240-B239-B68D3BB54333/data/Applications/6B54B9B7-81C1-402A-9016-806EBC3A6D84/tmp/ARTopViewControllerSpec/reference_showing edit mode for albums as ipad light@2x.png" "/Users/orta/Library/Developer/CoreSimulator/Devices/91CEFD41-40FA-4240-B239-B68D3BB54333/data/Applications/6B54B9B7-81C1-402A-9016-806EBC3A6D84/tmp/ARTopViewControllerSpec/failed_showing edit mode for albums as ipad light@2x.png"
+2015-04-22 11:52:52.232 FolioDev[15845:607] /Users/orta/dev/ios/energy/ArtsyFolio Tests/View Controllers/ARTopViewControllerTests.m:66 expected a matching snapshot named showing edit mode for albums as ipad light
+NSLocalizedDescription: Images different
+/Users/orta/dev/ios/energy/ArtsyFolio Tests/View Controllers/ARTopViewControllerTests.m:66: error: -[ARTopViewControllerSpec test_visuals__showing_edit_mode_for_albums_as_ipad] : expected a matching snapshot named showing edit mode for albums as ipad light
+NSLocalizedDescription: Images different
+Test Case '-[ARTopViewControllerSpec test_visuals__showing_edit_mode_for_albums_as_ipad]' failed (0.517 seconds).
+Test Case '-[ARTopViewControllerSpec test_visuals__showing_edit_mode_for_albums_as_iphone]' started.
+2015-04-22 11:52:52.261 FolioDev[15845:607] -[WYPopoverController positionPopover:] (2541) : popoverContainerView.frame = {{0, 0}, {0, 0}}
+2015-04-22 11:52:52.290 FolioDev[15845:607] -[WYPopoverController positionPopover:] (2541) : popoverContainerView.frame = {{0, 0}, {0, 0}}

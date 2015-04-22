@@ -71,7 +71,9 @@
                 if (testCase) [self.latestTestSuite.testCases addObject:testCase];
                 
             } else if ([line rangeOfString:@"' failed ("].location != NSNotFound) {
-                [self.mutableDiffCommands.lastObject setFails:YES];
+                for (ORKaleidoscopeCommand *command in self.mutableDiffCommands) {
+                    [command setFails:YES];
+                }
             }
         }
         
