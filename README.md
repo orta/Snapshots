@@ -16,15 +16,7 @@ I don't think Xcode's quite there, so I built a plugin to fix it.
 
 #### Installation
 
-Run this:
-```
-git clone https://github.com/orta/Snapshots.git
-cd Snapshots
-xcodebuild
-```
-Then restart Xcode.
-
-Soon you can install via [Alcatraz](http://alcatraz.io/). In XCode choose Window, Package Manager and search for "Snapshots". thre's an issue around nibs with Alcatraz which means it won't load.
+Install via [Alcatraz](http://alcatraz.io/). In XCode choose Window, Package Manager and search for "Snapshots". 
 
 #### Contributing
 
