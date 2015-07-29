@@ -1,3 +1,5 @@
 .idea
-orta.xcuserdatad
+xcuserdata
+*.xccheckout
+*.xcuserstate
 build/
