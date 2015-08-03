@@ -47,7 +47,7 @@ static ORSnapshotDiffs *sharedPlugin;
                             
                             // Get the original switch view
                             NSView *switchView = orig.view;
-                            CGSize viewSize = (CGSize){ 160, 25 };
+                            CGSize viewSize = (CGSize){ 137, 25 };
 
                             // Make a new container that's wider
                             NSView *holder = [[NSView alloc] initWithFrame:(CGRect){0, 0, viewSize}];
@@ -61,14 +61,9 @@ static ORSnapshotDiffs *sharedPlugin;
                             
                             NSBundle *bundle = [NSBundle bundleForClass:ORSnapshotDiffs.class];
                             NSImage *image = [bundle imageForResource:@"SnapshotToolbarIcon"];
-                            NSImage *separatorImage = [bundle imageForResource:@"SeparatorImage"];
-                            
-                            NSImageView *imageView = [[NSImageView alloc] initWithFrame:CGRectMake(newSwitchFrame.origin.x - 10, 3, 2, 18)];
-                            imageView.image = separatorImage;
-                            [holder addSubview:imageView];
-                            
+
                             // Make the damn button
-                            CGRect snapshotFrame = CGRectMake(imageView.frame.origin.x - 8 - image.size.width, 0, image.size.width, image.size.height);
+                            CGRect snapshotFrame = CGRectMake(0, 0, image.size.width, image.size.height);
                             NSButton *snapshotButton = [[NSButton alloc] initWithFrame:snapshotFrame];
                             snapshotButton.image = image;
                             snapshotButton.alternateImage = image;

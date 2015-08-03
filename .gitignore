@@ -3,3 +3,4 @@ xcuserdata
 *.xccheckout
 *.xcuserstate
 build/
+Snapshots.xcodeproj/xcuserdata/
