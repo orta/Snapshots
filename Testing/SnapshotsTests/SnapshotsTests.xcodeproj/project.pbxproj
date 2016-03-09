@@ -18,6 +18,9 @@
 		60071FCF1AE7FC90000ED7DB /* ORTestsSuiteModels.m in Sources */ = {isa = PBXBuildFile; fileRef = 60071FCE1AE7FC8F000ED7DB /* ORTestsSuiteModels.m */; };
 		60071FD21AE7FCD3000ED7DB /* ORKaleidoscopeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60071FD11AE7FCD3000ED7DB /* ORKaleidoscopeController.m */; };
 		60071FD51AE7FD0F000ED7DB /* MultiSnapshotsPerTest.log in Resources */ = {isa = PBXBuildFile; fileRef = 60071FD41AE7FD0F000ED7DB /* MultiSnapshotsPerTest.log */; };
+		608CFC6F1C90D0FC00B9056C /* QuickNewSnapshot.log in Resources */ = {isa = PBXBuildFile; fileRef = 608CFC6E1C90D0FC00B9056C /* QuickNewSnapshot.log */; };
+		608CFC701C90D1DB00B9056C /* QuickNewSnapshot.log in Resources */ = {isa = PBXBuildFile; fileRef = 608CFC6E1C90D0FC00B9056C /* QuickNewSnapshot.log */; };
+		608CFC721C90D38D00B9056C /* QuickJustNewSnapshot.log in Resources */ = {isa = PBXBuildFile; fileRef = 608CFC711C90D38D00B9056C /* QuickJustNewSnapshot.log */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +55,8 @@
 		60071FD01AE7FCD3000ED7DB /* ORKaleidoscopeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ORKaleidoscopeController.h; path = ../../../SnapshotDiffs/ORKaleidoscopeController.h; sourceTree = "<group>"; };
 		60071FD11AE7FCD3000ED7DB /* ORKaleidoscopeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ORKaleidoscopeController.m; path = ../../../SnapshotDiffs/ORKaleidoscopeController.m; sourceTree = "<group>"; };
 		60071FD41AE7FD0F000ED7DB /* MultiSnapshotsPerTest.log */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = MultiSnapshotsPerTest.log; sourceTree = "<group>"; };
+		608CFC6E1C90D0FC00B9056C /* QuickNewSnapshot.log */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = QuickNewSnapshot.log; sourceTree = "<group>"; };
+		608CFC711C90D38D00B9056C /* QuickJustNewSnapshot.log */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = QuickJustNewSnapshot.log; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +164,8 @@
 			isa = PBXGroup;
 			children = (
 				60071FD41AE7FD0F000ED7DB /* MultiSnapshotsPerTest.log */,
+				608CFC6E1C90D0FC00B9056C /* QuickNewSnapshot.log */,
+				608CFC711C90D38D00B9056C /* QuickJustNewSnapshot.log */,
 			);
 			name = "Example Logs";
 			sourceTree = "<group>";
@@ -245,7 +252,9 @@
 			files = (
 				60071FA11AE7FC08000ED7DB /* Images.xcassets in Resources */,
 				60071FD51AE7FD0F000ED7DB /* MultiSnapshotsPerTest.log in Resources */,
+				608CFC721C90D38D00B9056C /* QuickJustNewSnapshot.log in Resources */,
 				60071FA41AE7FC08000ED7DB /* MainMenu.xib in Resources */,
+				608CFC701C90D1DB00B9056C /* QuickNewSnapshot.log in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -253,6 +262,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				608CFC6F1C90D0FC00B9056C /* QuickNewSnapshot.log in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

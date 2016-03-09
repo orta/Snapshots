@@ -1,0 +1,36 @@
+Test Suite 'LiveAuctionLotViewControllerTests' started at 2016-03-09 21:44:01.358
+Test Case '-[Artsy_Tests.LiveAuctionLotViewControllerTests snapshots__looks_good_for_closed_lots_UsersortadevioseigenArtsyTestsViewControllerTestsLiveAuctionLiveAuctionLotViewControllerTestsswift_21]' started.
+Mar  9 21:44:01  Artsy[9174] <Error>: CGContextSaveGState: invalid context 0x0. If you want to see the backtrace, please set CG_CONTEXT_SHOW_BACKTRACE environmental variable.
+Mar  9 21:44:01  Artsy[9174] <Error>: CGContextSaveGState: invalid context 0x0. If you want to see the backtrace, please set CG_CONTEXT_SHOW_BACKTRACE environmental variable.
+Mar  9 21:44:01  Artsy[9174] <Error>: CGContextSetBlendMode: invalid context 0x0. If you want to see the backtrace, please set CG_CONTEXT_SHOW_BACKTRACE environmental variable.
+Mar  9 21:44:01  Artsy[9174] <Error>: CGContextSetAlpha: invalid context 0x0. If you want to see the backtrace, please set CG_CONTEXT_SHOW_BACKTRACE environmental variable.
+Mar  9 21:44:01  Artsy[9174] <Error>: CGContextTranslateCTM: invalid context 0x0. If you want to see the backtrace, please set CG_CONTEXT_SHOW_BACKTRACE environmental variable.
+Mar  9 21:44:01  Artsy[9174] <Error>: CGContextScaleCTM: invalid context 0x0. If you want to see the backtrace, please set CG_CONTEXT_SHOW_BACKTRACE environmental variable.
+Mar  9 21:44:01  Artsy[9174] <Error>: CGContextDrawImage: invalid context 0x0. If you want to see the backtrace, please set CG_CONTEXT_SHOW_BACKTRACE environmental variable.
+Mar  9 21:44:01  Artsy[9174] <Error>: CGContextRestoreGState: invalid context 0x0. If you want to see the backtrace, please set CG_CONTEXT_SHOW_BACKTRACE environmental variable.
+Mar  9 21:44:01  Artsy[9174] <Error>: CGContextRestoreGState: invalid context 0x0. If you want to see the backtrace, please set CG_CONTEXT_SHOW_BACKTRACE environmental variable.
+2016-03-09 21:44:01.471 Artsy[9174:24386969] If you have Kaleidoscope installed you can run this command to see an image diff:
+ksdiff "/Users/orta/Library/Developer/CoreSimulator/Devices/D86744A5-08C8-459F-B77A-8EFC7E4DF3ED/data/Containers/Data/Application/4F5FFF12-C55E-4C7E-8EDE-0E65713AE95F/tmp/LiveAuctionLotViewControllerTests/reference_snapshots__looks_good_for_closed_lots@2x.png" "/Users/orta/Library/Developer/CoreSimulator/Devices/D86744A5-08C8-459F-B77A-8EFC7E4DF3ED/data/Containers/Data/Application/4F5FFF12-C55E-4C7E-8EDE-0E65713AE95F/tmp/LiveAuctionLotViewControllerTests/failed_snapshots__looks_good_for_closed_lots@2x.png"
+/Users/orta/dev/ios/eigen/Artsy_Tests/View_Controller_Tests/Live_Auction/LiveAuctionLotViewControllerTests.swift:25: error: -[Artsy_Tests.LiveAuctionLotViewControllerTests snapshots__looks_good_for_closed_lots_UsersortadevioseigenArtsyTestsViewControllerTestsLiveAuctionLiveAuctionLotViewControllerTestsswift_21] : failed - , got expected a matching snapshot
+
+Test Case '-[Artsy_Tests.LiveAuctionLotViewControllerTests snapshots__looks_good_for_closed_lots_UsersortadevioseigenArtsyTestsViewControllerTestsLiveAuctionLiveAuctionLotViewControllerTestsswift_21]' failed (0.116 seconds).
+Test Case '-[Artsy_Tests.LiveAuctionLotViewControllerTests snapshots__looks_good_for_live_lots_UsersortadevioseigenArtsyTestsViewControllerTestsLiveAuctionLiveAuctionLotViewControllerTestsswift_28]' started.
+Mar  9 21:44:01  Artsy[9174] <Error>: CGContextSaveGState: invalid context 0x0. If you want to see the backtrace, please set CG_CONTEXT_SHOW_BACKTRACE environmental variable.
+Mar  9 21:44:01  Artsy[9174] <Error>: CGContextSaveGState: invalid context 0x0. If you want to see the backtrace, please set CG_CONTEXT_SHOW_BACKTRACE environmental variable.
+Test Suite 'LiveAuctionBidHistoryViewControllerTests' started at 2016-03-09 21:44:01.331
+Test Case '-[Artsy_Tests.LiveAuctionBidHistoryViewControllerTests cells__looks_right_for_open_UsersortadevioseigenArtsyTestsViewControllerTestsLiveAuctionLiveAuctionBidHistoryViewControllerTestsswift_21]' started.
+Mar  9 21:44:01  Artsy[9174] <Error>: CGContextSaveGState: invalid context 0x0. If you want to see the backtrace, please set CG_CONTEXT_SHOW_BACKTRACE environmental variable.
+Mar  9 21:44:01  Artsy[9174] <Error>: CGContextSaveGState: invalid context 0x0. If you want to see the backtrace, please set CG_CONTEXT_SHOW_BACKTRACE environmental variable.
+Mar  9 21:44:01  Artsy[9174] <Error>: CGContextSetBlendMode: invalid context 0x0. If you want to see the backtrace, please set CG_CONTEXT_SHOW_BACKTRACE environmental variable.
+Mar  9 21:44:01  Artsy[9174] <Error>: CGContextSetAlpha: invalid context 0x0. If you want to see the backtrace, please set CG_CONTEXT_SHOW_BACKTRACE environmental variable.
+Mar  9 21:44:01  Artsy[9174] <Error>: CGContextTranslateCTM: invalid context 0x0. If you want to see the backtrace, please set CG_CONTEXT_SHOW_BACKTRACE environmental variable.
+Mar  9 21:44:01  Artsy[9174] <Error>: CGContextScaleCTM: invalid context 0x0. If you want to see the backtrace, please set CG_CONTEXT_SHOW_BACKTRACE environmental variable.
+Mar  9 21:44:01  Artsy[9174] <Error>: CGContextDrawImage: invalid context 0x0. If you want to see the backtrace, please set CG_CONTEXT_SHOW_BACKTRACE environmental variable.
+Mar  9 21:44:01  Artsy[9174] <Error>: CGContextRestoreGState: invalid context 0x0. If you want to see the backtrace, please set CG_CONTEXT_SHOW_BACKTRACE environmental variable.
+Mar  9 21:44:01  Artsy[9174] <Error>: CGContextRestoreGState: invalid context 0x0. If you want to see the backtrace, please set CG_CONTEXT_SHOW_BACKTRACE environmental variable.
+2016-03-09 21:44:01.347 Artsy[9174:24386969] Reference image save at: /Users/orta/dev/ios/eigen/Artsy_Tests/ReferenceImages/LiveAuctionBidHistoryViewControllerTests/cells__looks_right_for_open@2x.png
+/Users/orta/dev/ios/eigen/Artsy_Tests/View_Controller_Tests/Live_Auction/LiveAuctionBidHistoryViewControllerTests.swift:28: error: -[Artsy_Tests.LiveAuctionBidHistoryViewControllerTests cells__looks_right_for_open_UsersortadevioseigenArtsyTestsViewControllerTestsLiveAuctionLiveAuctionBidHistoryViewControllerTestsswift_21] : failed - , got snapshot nil successfully recorded, replace recordSnapshot with a check
+
+Test Case '-[Artsy_Tests.LiveAuctionBidHistoryViewControllerTests cells__looks_right_for_open_UsersortadevioseigenArtsyTestsViewControllerTestsLiveAuctionLiveAuctionBidHistoryViewControllerTestsswift_21]' failed (0.025 seconds).
+Test Suite 'LiveAuctionBidHistoryViewControllerTests' failed at 2016-03-09 21:44:01.357.
+Executed 1 test, with 1 failure (0 unexpected) in 0.025 (0.026) seconds
