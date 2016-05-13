@@ -193,7 +193,7 @@
 
     NSString *originalReference = [[NSFileManager defaultManager] or_findFileWithNamePrefix:name inFolder:folder];
     originalReference = [originalReference stringByReplacingOccurrencesOfString:@"file://" withString:@""];
-    originalReference  = [originalReference stringByReplacingOccurrencesOfString:@"%20" withString:@" "];
+    originalReference = [originalReference stringByRemovingPercentEncoding];
     NSURL *originalFileURL = [NSURL fileURLWithPath:originalReference];
 
     if (![[NSFileManager defaultManager] removeItemAtURL:originalFileURL error:&error]) {
