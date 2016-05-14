@@ -49,6 +49,7 @@
 @property (nonatomic, assign) BOOL fails;
 @property (nonatomic, copy) NSString *beforePath;
 @property (nonatomic, copy) NSString *afterPath;
+@property (nonatomic, copy) NSString *diffPath;
 @property (nonatomic, copy) NSString *fullCommand;
 @property (nonatomic, weak) ORTestCase *testCase;
 @property (nonatomic, copy) NSString *projectLocation;

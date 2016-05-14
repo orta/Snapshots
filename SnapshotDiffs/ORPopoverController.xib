@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6254"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="10116"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="ORPopoverController">
@@ -14,6 +14,7 @@
                 <outlet property="failingTestsTitle" destination="2au-A8-Rb4" id="gGL-Ps-eOz"/>
                 <outlet property="mainView" destination="8IX-oz-5Bw" id="qs8-7p-Axt"/>
                 <outlet property="plainImagePreviewView" destination="auu-Gh-2MY" id="yDf-1f-F1n"/>
+                <outlet property="previewModeSegmentedControl" destination="g39-dM-CLo" id="i5d-hA-8VL"/>
                 <outlet property="testTableView" destination="Wxm-sI-xiw" id="NKz-Sz-eYC"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
             </connections>
@@ -42,6 +43,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" selectionHighlightStyle="none" columnSelection="YES" multipleSelection="NO" emptySelection="NO" autosaveColumns="NO" rowHeight="166" viewBased="YES" id="Wxm-sI-xiw">
+                                        <rect key="frame" x="0.0" y="0.0" width="255" height="0.0"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <size key="intercellSpacing" width="0.0" height="2"/>
                                         <color key="backgroundColor" red="0.9490196704864502" green="0.9490196704864502" blue="0.9490196704864502" alpha="1" colorSpace="deviceRGB"/>
@@ -152,16 +154,16 @@
                     <rect key="frame" x="255" y="0.0" width="320" height="480"/>
                     <subviews>
                         <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" id="auu-Gh-2MY">
-                            <rect key="frame" x="23" y="57" width="277" height="400"/>
+                            <rect key="frame" x="20" y="57" width="280" height="380"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="qPf-nF-UtB"/>
                         </imageView>
                         <customView id="vTy-JQ-RFh" customClass="ORSlidingImageView">
-                            <rect key="frame" x="20" y="57" width="280" height="400"/>
+                            <rect key="frame" x="20" y="47" width="280" height="400"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         </customView>
                         <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" setsMaxLayoutWidthAtFirstLayout="YES" id="Ds5-1M-2kH">
-                            <rect key="frame" x="21" y="0.0" width="123" height="42"/>
+                            <rect key="frame" x="21" y="2" width="123" height="42"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Multiline Label this should be a mult line kinda bag" id="qi6-tp-gR4">
                                 <font key="font" metaFont="smallSystem"/>
@@ -170,13 +172,13 @@
                             </textFieldCell>
                         </textField>
                         <customView id="IvA-Qd-tzk">
-                            <rect key="frame" x="160" y="-13" width="160" height="56"/>
+                            <rect key="frame" x="142" y="5" width="160" height="42"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <button verticalHuggingPriority="750" id="ZvJ-HO-BrE">
-                                    <rect key="frame" x="2" y="19" width="95" height="17"/>
+                                    <rect key="frame" x="4" y="21" width="93" height="17"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                    <buttonCell key="cell" type="inline" title="Open in Finder" bezelStyle="inline" alignment="center" borderStyle="border" inset="2" id="zls-0c-O8K">
+                                    <buttonCell key="cell" type="inline" title="Finder" bezelStyle="inline" alignment="center" borderStyle="border" inset="2" id="zls-0c-O8K">
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                         <font key="font" metaFont="smallSystemBold"/>
                                     </buttonCell>
@@ -185,7 +187,7 @@
                                     </connections>
                                 </button>
                                 <button verticalHuggingPriority="750" id="HrI-oX-IPW">
-                                    <rect key="frame" x="107" y="38" width="45" height="17"/>
+                                    <rect key="frame" x="99" y="21" width="57" height="17"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <buttonCell key="cell" type="inline" title="Swap" bezelStyle="inline" alignment="center" borderStyle="border" inset="2" id="0yk-Nu-8zg">
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -195,21 +197,10 @@
                                         <action selector="swapImages:" target="-2" id="KcI-eO-w94"/>
                                     </connections>
                                 </button>
-                                <button verticalHuggingPriority="750" id="UPJ-HU-AwR">
-                                    <rect key="frame" x="107" y="19" width="45" height="17"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                    <buttonCell key="cell" type="inline" title="Diff" bezelStyle="inline" alignment="center" borderStyle="border" inset="2" id="jhf-mI-7w3">
-                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                        <font key="font" metaFont="smallSystemBold"/>
-                                    </buttonCell>
-                                    <connections>
-                                        <action selector="tappedCurrentDiff:" target="-2" id="bxv-R3-G07"/>
-                                    </connections>
-                                </button>
                                 <button verticalHuggingPriority="750" id="h1s-gG-NEw">
-                                    <rect key="frame" x="2" y="38" width="104" height="17"/>
+                                    <rect key="frame" x="99" y="3" width="57" height="17"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                    <buttonCell key="cell" type="inline" title="Open in Preview" bezelStyle="inline" alignment="center" borderStyle="border" inset="2" id="Fow-U1-mDx">
+                                    <buttonCell key="cell" type="inline" title="Preview" bezelStyle="inline" alignment="center" borderStyle="border" inset="2" id="Fow-U1-mDx">
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                         <font key="font" metaFont="smallSystemBold"/>
                                     </buttonCell>
@@ -217,8 +208,33 @@
                                         <action selector="openInPreview:" target="-2" id="bND-6s-WrD"/>
                                     </connections>
                                 </button>
+                                <button verticalHuggingPriority="750" id="r13-Eh-9Nz">
+                                    <rect key="frame" x="4" y="3" width="93" height="17"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                    <buttonCell key="cell" type="inline" title="Kaleidoscope" bezelStyle="inline" alignment="center" borderStyle="border" inset="2" id="YHo-MZ-xuY">
+                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                        <font key="font" metaFont="smallSystemBold"/>
+                                        <connections>
+                                            <action selector="tappedOpenInKaleidoscope:" target="-2" id="lAW-MU-cUv"/>
+                                        </connections>
+                                    </buttonCell>
+                                </button>
                             </subviews>
                         </customView>
+                        <segmentedControl verticalHuggingPriority="750" id="g39-dM-CLo">
+                            <rect key="frame" x="97" y="447" width="125" height="24"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <segmentedCell key="cell" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="mQS-Ir-nPt">
+                                <font key="font" metaFont="system"/>
+                                <segments>
+                                    <segment label="Compare" selected="YES"/>
+                                    <segment label="Diff" tag="1"/>
+                                </segments>
+                            </segmentedCell>
+                            <connections>
+                                <action selector="tappedPreviewMode:" target="-2" id="Ri8-OS-eE7"/>
+                            </connections>
+                        </segmentedControl>
                     </subviews>
                 </customView>
             </subviews>

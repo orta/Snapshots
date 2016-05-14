@@ -52,5 +52,15 @@
     XCTAssert(reader.hasNewSnapshots, @"Expected to have snapshots");
 }
 
+- (void)testReferenceImageSaveNewRecording {
+    ORLogReader *reader = [[ORLogReader alloc] init];
+
+    [self runLog:@"ReferenceImageSave"];
+
+    XCTAssertTrue(reader.hasNewSnapshots, @"Expected to have snapshots");
+    XCTAssertEqual(reader.uniqueDiffCommands.count, 0lu, @"Expected 0 unique diff commands");
+    XCTAssertEqual(reader.ksdiffCommands.count, 0lu, @"Expected 0 diff commands");
+}
+
 
 @end

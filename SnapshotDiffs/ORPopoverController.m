@@ -15,6 +15,8 @@
 
 @import Quartz;
 
+static NSUInteger const ORPreviewModeIndexCompare = 0;
+
 @interface ORPopoverController ()
 
 @property (strong) IBOutlet NSView *mainView;
@@ -36,6 +38,7 @@
 @property (nonatomic, strong) CATransition *masterDetailTransition;
 
 @property (nonatomic, strong) ORPopoverTableDataSource *tableDataSource;
+@property (weak) IBOutlet NSSegmentedControl *previewModeSegmentedControl;
 
 @property (nonatomic, weak) ORKaleidoscopeCommand *currentCommand;
 @property (strong) IBOutlet NSView *actionButtonsContainerView;
@@ -92,26 +95,42 @@
         
         self.detailSlidingView.frontImage = [[NSImage alloc] initWithContentsOfFile:[command beforePath]];
         self.detailSlidingView.backImage = [[NSImage alloc] initWithContentsOfFile:[command afterPath]];
-        
+        self.plainImagePreviewView.image = [[NSImage alloc] initWithContentsOfFile:[command diffPath]];
+
         self.detailSlidingView.frontMessage = @"Reference";
         self.detailSlidingView.backMessage = @"Recorded";
         
         self.detailTestDescription.stringValue = [command testCase].name;
         self.currentCommand = command;
         self.actionButtonsContainerView.hidden = NO;
+        self.previewModeSegmentedControl.hidden = NO;
+        [self updatePreviewModeWithIndex:self.previewModeSegmentedControl.selectedSegment];
     }
     
     if ([command isKindOfClass:ORSnapshotCreationReference.class]) {
         self.detailSlidingView.hidden = YES;
         self.plainImagePreviewView.hidden = NO;
+        self.previewModeSegmentedControl.hidden = YES;
         
-        self.plainImagePreviewView.image = [[NSImage alloc] initWithContentsOfFile:[command path]];
+        self.plainImagePreviewView.image = [[NSImage alloc] initWithContentsOfFile:(NSString *)[command path]];
         self.detailTestDescription.stringValue = [command testCase].name;
         self.actionButtonsContainerView.hidden = YES;
     }
 }
 
-- (IBAction)tappedCurrentDiff:(id)sender
+- (void)updatePreviewModeWithIndex:(NSUInteger)index
+{
+    BOOL compare = index == ORPreviewModeIndexCompare;
+    self.plainImagePreviewView.hidden = compare;
+    self.detailSlidingView.hidden = !compare;
+}
+
+- (IBAction)tappedPreviewMode:(NSSegmentedControl *)sender
+{
+    [self updatePreviewModeWithIndex:sender.selectedSegment];
+}
+
+- (IBAction)tappedOpenInKaleidoscope:(NSButtonCell *)sender
 {
     [self.currentCommand launch];
 }
