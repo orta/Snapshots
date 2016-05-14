@@ -1,0 +1,18 @@
+2016-05-14 21:09:53.866 CaffeineTracker[55104:11323548] [Crashlytics] Version 3.7.0 (102)
+21:09:54.106 CaffeineTracker[55104:11323702] _XCT_testBundleReadyWithProtocolVersion:minimumVersion: reply received
+21:09:54.126 CaffeineTracker[55104:11323681] _IDE_startExecutingTestPlanWithProtocolVersion:16
+Test Suite 'Selected tests' started at 2016-05-14 21:09:54.131
+Test Suite 'WeekdayIntakeViewTests' started at 2016-05-14 21:09:54.132
+Test Case '-[CaffeineTrackerTests.WeekdayIntakeViewTests testConfiguration]' started.
+2016-05-14 21:09:54.143 CaffeineTracker[55104:11323548] Reference image save at: /Users/Silvan/Developer/CaffeineTracker/CaffeineTrackerTests/ReferenceImages_64/CaffeineTrackerTests.WeekdayIntakeViewTests/testConfiguration@2x.png
+
+
+Test session log:
+/Users/Silvan/Library/Developer/Xcode/DerivedData/CaffeineTracker-bjnrptgprhvssgalespvskznqvbb/Logs/Test/A2334604-7B20-4F7A-BD2B-7282291918D5/Session-2016-05-14_21:09:47-eoMWFk.log
+
+/Users/Silvan/Developer/CaffeineTracker/Pods/FBSnapshotTestCase/FBSnapshotTestCase/SwiftSupport.swift:13: error: -[CaffeineTrackerTests.WeekdayIntakeViewTests testConfiguration] : failed - Test ran in record mode. Reference image is now saved. Disable record mode to perform an actual snapshot comparison!
+Test Case '-[CaffeineTrackerTests.WeekdayIntakeViewTests testConfiguration]' failed (0.013 seconds).
+Test Suite 'WeekdayIntakeViewTests' failed at 2016-05-14 21:09:54.146.
+Executed 1 test, with 1 failure (0 unexpected) in 0.013 (0.014) seconds
+Test Suite 'Selected tests' failed at 2016-05-14 21:09:54.147.
+Executed 1 test, with 1 failure (0 unexpected) in 0.013 (0.015) seconds

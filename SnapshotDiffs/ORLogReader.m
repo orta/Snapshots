@@ -97,14 +97,19 @@
             }
         }
 
-        if ([line rangeOfString:@"successfully recorded"].location != NSNotFound) {
+        BOOL recordedReferenceImage = [line rangeOfString:@"Reference image save at"].location != NSNotFound ||
+                                      [line rangeOfString:@"successfully recorded"].location != NSNotFound;
+
+        if (recordedReferenceImage) {
             ORSnapshotCreationReference *snapshot = [ORSnapshotCreationReference referenceFromString:line];
 
             if (snapshot) {
                 ORTestCase *testCase = self.latestTestSuite.latestTestCase;
-                NSString *path = [[NSFileManager defaultManager] or_findFileWithNamePrefix:snapshot.name inFolder:self.latestTestSuite.name];
-                path = [path stringByReplacingOccurrencesOfString:@"file://" withString:@""];
-                snapshot.path = [path stringByReplacingOccurrencesOfString:@"%20" withString:@" "];
+                if (nil == snapshot.path) {
+                    NSString *path = [[NSFileManager defaultManager] or_findFileWithNamePrefix:snapshot.name inFolder:self.latestTestSuite.name];
+                    path = [path stringByReplacingOccurrencesOfString:@"file://" withString:@""];
+                    snapshot.path = [path stringByRemovingPercentEncoding];
+                }
 
                 if (![self.mutableSnapshotCreations containsObject:snapshot]) {
                     [self.mutableSnapshotCreations addObject:snapshot];

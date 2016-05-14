@@ -145,9 +145,19 @@
         obj.fullCommand = command;
         obj.beforePath = components[1];
         obj.afterPath = components[3];
+        obj.diffPath = [self diffPathWithBeforePath:obj.beforePath];
         return obj;
     }
     return nil;
+}
+
++ (NSString *)diffPathWithBeforePath:(NSString *)beforePath
+{
+    if (![beforePath containsString:@"reference"]) {
+        return nil;
+    }
+
+    return [beforePath stringByReplacingOccurrencesOfString:@"reference" withString:@"diff"];
 }
 
 - (NSURL *)beforeURL
@@ -240,6 +250,19 @@
         obj.name = [endComponents.firstObject componentsSeparatedByString:@"snapshot "].lastObject;
         return obj;
     }
+
+    // 2016-05-14 20:05:09.209 CaffeineTracker[46257:11199502] Reference image save at: /Users/Silvan/Developer/CaffeineTracker/CaffeineTrackerTests/ReferenceImages_64/CaffeineTrackerTests.WeekdayIntakeViewTests/testConfiguration@2x.png
+
+    NSArray *alternateComponents = [line componentsSeparatedByString:@"Reference image save at: "];
+    NSURL *alternatePath = [NSURL URLWithString:alternateComponents.lastObject];
+
+    if (nil != alternateComponents) {
+        ORSnapshotCreationReference *obj = [[self alloc] init];
+        obj.name = [alternatePath.lastPathComponent stringByDeletingPathExtension];
+        obj.path = alternatePath.path;
+        return obj;
+    }
+
     return nil;
 }
 
