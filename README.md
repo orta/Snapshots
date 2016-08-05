@@ -16,7 +16,7 @@ I don't think Xcode's quite there, so I built a plugin to fix it.
 
 #### Installation
 
-Install via [Alcatraz](http://alcatraz.io/). In XCode choose Window, Package Manager and search for "Snapshots". 
+Install via [Alcatraz](http://alcatraz.io/). In Xcode choose Window, Package Manager and search for "Snapshots". 
 
 #### Contributing
 
