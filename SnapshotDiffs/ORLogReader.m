@@ -53,67 +53,82 @@
 
 - (void)gotLogNotification:(NSNotification *)notification
 {
-    id fullLog = notification.userInfo[@"item"];
-
-    NSString *log = [fullLog content];
-
-    [self.mutableLog appendString:log];
- 
-    for (NSString *line in [log componentsSeparatedByCharactersInSet:NSCharacterSet.newlineCharacterSet]) {
-        if ([line rangeOfString:@"Test Suite"].location != NSNotFound) {
-            ORTestSuite *suite = [ORTestSuite suiteFromString:line];
-            if (suite) [self.mutableTestSuites addObject:suite];
-        }
-        
-        if ([line rangeOfString:@"Test Case"].location != NSNotFound) {
-            if ([line rangeOfString:@"started."].location != NSNotFound) {
-                ORTestCase *testCase = [ORTestCase caseFromString:line];
-                if (testCase) [self.latestTestSuite.testCases addObject:testCase];
+    NSMutableArray *logs = [[NSMutableArray alloc] init];
+    
+    //Support Xcode < 8.3
+    id item = notification.userInfo[@"item"];
+    if (item) {
+        [logs addObject:item];
+    }
+    
+    //Support Xcode >= 8.3
+    NSArray *items = notification.userInfo[@"items"];
+    if (items) {
+        [logs addObjectsFromArray:items];
+    }
+    
+    for (id currentLog in logs) {
+        NSString *log = [currentLog content];
+        if (log) {
+            [self.mutableLog appendString:log];
+            
+            for (NSString *line in [log componentsSeparatedByCharactersInSet:NSCharacterSet.newlineCharacterSet]) {
+                if ([line rangeOfString:@"Test Suite"].location != NSNotFound) {
+                    ORTestSuite *suite = [ORTestSuite suiteFromString:line];
+                    if (suite) [self.mutableTestSuites addObject:suite];
+                }
                 
-            } else if ([line rangeOfString:@"' failed ("].location != NSNotFound) {
-                for (ORKaleidoscopeCommand *command in self.mutableDiffCommands) {
-                    [command setFails:YES];
+                if ([line rangeOfString:@"Test Case"].location != NSNotFound) {
+                    if ([line rangeOfString:@"started."].location != NSNotFound) {
+                        ORTestCase *testCase = [ORTestCase caseFromString:line];
+                        if (testCase) [self.latestTestSuite.testCases addObject:testCase];
+                        
+                    } else if ([line rangeOfString:@"' failed ("].location != NSNotFound) {
+                        for (ORKaleidoscopeCommand *command in self.mutableDiffCommands) {
+                            [command setFails:YES];
+                        }
+                    }
                 }
-            }
-        }
-        
-        if ([line rangeOfString:@"ksdiff"].location != NSNotFound) {
-            NSString *commandString = [self extractCommandFromLine:line];
-            ORKaleidoscopeCommand *command = [ORKaleidoscopeCommand commandFromString:commandString];
-            if (command) {
-                [self.mutableDiffCommands addObject:command];
-                [self.latestTestSuite.latestTestCase addCommand:command];
-            }
-        }
-        
-        if ([line rangeOfString:@"This application, or a library it uses, is using an invalid context"].location != NSNotFound) {
-            _hasCGErrors = YES;
-        }
-        
-        if ([line rangeOfString:@"]"].location != NSNotFound && [line rangeOfString:@"expected a matching snapshot"].location != NSNotFound) {
-            NSString *filepathAndLine = [line or_substringBetween:@"] " and:@" expected a matching snapshot"];
-            if (filepathAndLine && filepathAndLine.length > 1) {
-                [self.latestTestSuite.latestTestCase.commands makeObjectsPerformSelector:@selector(setProjectLocation:) withObject:filepathAndLine];
-            }
-        }
-
-        BOOL recordedReferenceImage = [line rangeOfString:@"Reference image save at"].location != NSNotFound ||
-                                      [line rangeOfString:@"successfully recorded"].location != NSNotFound;
-
-        if (recordedReferenceImage) {
-            ORSnapshotCreationReference *snapshot = [ORSnapshotCreationReference referenceFromString:line];
-
-            if (snapshot) {
-                ORTestCase *testCase = self.latestTestSuite.latestTestCase;
-                if (nil == snapshot.path) {
-                    NSString *path = [[NSFileManager defaultManager] or_findFileWithNamePrefix:snapshot.name inFolder:self.latestTestSuite.name];
-                    path = [path stringByReplacingOccurrencesOfString:@"file://" withString:@""];
-                    snapshot.path = [path stringByRemovingPercentEncoding];
+                
+                if ([line rangeOfString:@"ksdiff"].location != NSNotFound) {
+                    NSString *commandString = [self extractCommandFromLine:line];
+                    ORKaleidoscopeCommand *command = [ORKaleidoscopeCommand commandFromString:commandString];
+                    if (command) {
+                        [self.mutableDiffCommands addObject:command];
+                        [self.latestTestSuite.latestTestCase addCommand:command];
+                    }
                 }
-
-                if (![self.mutableSnapshotCreations containsObject:snapshot]) {
-                    [self.mutableSnapshotCreations addObject:snapshot];
-                    [testCase addSnapshot:snapshot];
+                
+                if ([line rangeOfString:@"This application, or a library it uses, is using an invalid context"].location != NSNotFound) {
+                    _hasCGErrors = YES;
+                }
+                
+                if ([line rangeOfString:@"]"].location != NSNotFound && [line rangeOfString:@"expected a matching snapshot"].location != NSNotFound) {
+                    NSString *filepathAndLine = [line or_substringBetween:@"] " and:@" expected a matching snapshot"];
+                    if (filepathAndLine && filepathAndLine.length > 1) {
+                        [self.latestTestSuite.latestTestCase.commands makeObjectsPerformSelector:@selector(setProjectLocation:) withObject:filepathAndLine];
+                    }
+                }
+                
+                BOOL recordedReferenceImage = [line rangeOfString:@"Reference image save at"].location != NSNotFound ||
+                [line rangeOfString:@"successfully recorded"].location != NSNotFound;
+                
+                if (recordedReferenceImage) {
+                    ORSnapshotCreationReference *snapshot = [ORSnapshotCreationReference referenceFromString:line];
+                    
+                    if (snapshot) {
+                        ORTestCase *testCase = self.latestTestSuite.latestTestCase;
+                        if (nil == snapshot.path) {
+                            NSString *path = [[NSFileManager defaultManager] or_findFileWithNamePrefix:snapshot.name inFolder:self.latestTestSuite.name];
+                            path = [path stringByReplacingOccurrencesOfString:@"file://" withString:@""];
+                            snapshot.path = [path stringByRemovingPercentEncoding];
+                        }
+                        
+                        if (![self.mutableSnapshotCreations containsObject:snapshot]) {
+                            [self.mutableSnapshotCreations addObject:snapshot];
+                            [testCase addSnapshot:snapshot];
+                        }
+                    }
                 }
             }
         }
