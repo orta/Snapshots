@@ -1,5 +1,11 @@
 # Snapshots for Xcode
 
+Xcode plugins don't work anymore, so you should help @antondomashnev with https://github.com/Antondomashnev/FBSnapshotsViewer
+
+Which is the sucessor to this plugin.
+
+---
+
 ### An Xcode Plugin to show the state of FBSnapshot Tests.
 
 I think Facebook have [view testing](https://github.com/facebook/ios-snapshot-test-case) right. 
